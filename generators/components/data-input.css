@@ -1,0 +1,72 @@
+.data-input-container {
+  width: auto;
+  height: auto;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+}
+.data-input-container1 {
+  gap: var(--dl-space-space-unit);
+  flex: 0 0 auto;
+  width: auto;
+  height: auto;
+  display: flex;
+  align-items: center;
+  padding-top: var(--dl-space-space-halfunit);
+  padding-left: var(--dl-space-space-oneandhalfunits);
+  padding-right: var(--dl-space-space-oneandhalfunits);
+  padding-bottom: var(--dl-space-space-halfunit);
+  justify-content: center;
+}
+.data-input-text {
+  font-size: 20px;
+  transition: 0.3s;
+  font-family: "Arial";
+}
+.data-input-text:hover {
+  cursor: pointer;
+  font-weight: bold;
+}
+.data-input-text:active {
+  color: var(--dl-color-gray-700);
+  cursor: pointer;
+}
+.data-input-textinput {
+  width: var(--dl-size-size-xlarge);
+  height: auto;
+}
+.data-input-container2 {
+  flex: 0 0 auto;
+  width: auto;
+  display: flex;
+  align-self: center;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.data-input-root-class-name {
+  width: auto;
+  height: auto;
+}
+.data-input-root-class-name1 {
+  width: auto;
+  height: auto;
+}
+.data-input-root-class-name2 {
+  width: auto;
+  height: auto;
+}
+.data-input-root-class-name3 {
+  width: auto;
+  height: auto;
+}
+.data-input-root-class-name4 {
+  width: auto;
+  height: auto;
+  align-self: flex-end;
+}
+@media(max-width: 991px) {
+  .data-input-text {
+    font-family: Arial;
+  }
+}
