@@ -8,9 +8,6 @@ function generateCharacter() {
 }
 
 function generateSex() {
-    fetch('./data/data.json')
-        .then((response) => response.json())
-        .then((json) => console.log(json));
     let sex = document.getElementById("characterSex");
     let sexLock = document.getElementById("sexLock");
     if (!sexLock.checked) {
