@@ -64,6 +64,7 @@ function getMaleNames(culture) {
                 "Oshowa",
                 "Ramar"
             ]
+            break;
         case "Imperial":
             names = [
                 "Argal",
@@ -125,6 +126,7 @@ function getFemaleNames(culture) {
                 "Niya",
                 "Surna"
             ]
+            break;
         case "Dernian":
             names = [
                 "Anna",
