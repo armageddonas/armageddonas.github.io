@@ -6,8 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="utf-8" />
     <meta property="twitter:card" content="summary_large_image" />
-
-    <script type="text/javascript" src="../components/bannerMenu/bannerMenu.js"></script>
     <script type="text/javascript" src="../static/js/jquery-3.7.1.min.js"></script>
 
     <style data-tag="reset-style-sheet">
@@ -119,18 +117,44 @@
 </head>
 <body>
     <link rel="stylesheet" href="./style.css" />
-    <div>
-        <link href="./index.css" rel="stylesheet" />
 
-        <div class="home-container">
-            <div id="bannerMenu"></div>
-            <div class="home-content">
-                <embed type="text/html" src="wiki.html" loading="eager" class="embeded-site"/>
+    <link href="./bannerMenu.css" rel="stylesheet" />
+    <div class="banner-header" id="rootDiv">
+        <header data-thq="thq-navbar" class="banner-navbar-interactive">
+            <span class="banner-logo">Stathosite</span>
+            <div data-thq="thq-navbar-nav" class="banner-desktop-menu">
+                <nav class="banner-links">
+                    <a href="../index.html"><span class="banner-nav-first">Home</span></a>
+                    <a href="../loreWiki/index.html"><span class="banner-nav-next">Lore Wiki</span></a>
+                    <a href=""><span class="banner-nav-next">Game Wiki</span></a>
+                    <a href="../generators/index.html"><span class="banner-nav-next">Generator</span></a>
+                    <a href="../calendar/index.html"><span class="banner-nav-next">Calendar</span></a>
+                </nav>
             </div>
-            <div class="home-footer"></div>
-        </div>
+            <div data-thq="thq-burger-menu" class="banner-burger-menu">
+                <svg viewBox="0 0 1024 1024" class="banner-icon">
+                    <path d="M128 554.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667zM128 298.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667zM128 810.667h768c23.552 0 42.667-19.115 42.667-42.667s-19.115-42.667-42.667-42.667h-768c-23.552 0-42.667 19.115-42.667 42.667s19.115 42.667 42.667 42.667z"></path>
+                </svg>
+            </div>
+            <div data-thq="thq-mobile-menu" class="banner-mobile-menu">
+                <div class="banner-nav">
+                    <div class="banner-top">
+                        <div data-thq="thq-close-menu" class="banner-close-menu">
+                            <svg viewBox="0 0 1024 1024" class="banner-icon02">
+                                <path d="M810 274l-238 238 238 238-60 60-238-238-238 238-60-60 238-238-238-238 60-60 238 238 238-238z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <nav class="banner-links1">
+                        <a href="../index.html"><span class="banner-nav-burger-first">Home</span></a>
+                        <a href="../loreWiki/index.html"><span class="banner-nav-burger-next">Lore Wiki</span></a>
+                        <a href=""><span class="banner-nav-burger-next">Game Wiki</span></a>
+                        <a href="../generators/characterGenerator/index.html"><span class="banner-nav-burger-next">Generator</span></a>
+                        <a href="../calendar/index.html"><span class="banner-nav-burger-next">Calendar</span></a>
+                    </nav>
+                </div>
+            </div>
+        </header>
     </div>
-    <script data-section-id="navbar"
-            src="https://unpkg.com/@teleporthq/teleport-custom-scripts"></script>
 </body>
 </html>

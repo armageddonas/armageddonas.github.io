@@ -8,6 +8,7 @@ function getMaleNames(culture) {
     switch (culture) {
         case "Athelian":
             names = [
+                "Aldin",
                 "Argal",
                 "Atharon",
                 "Athyer",
@@ -24,6 +25,7 @@ function getMaleNames(culture) {
                 "Nosten",
                 "Otto",
                 "Sennet",
+                "Silan",
                 "Tanos",
                 "Teren",
                 "Thomas"
@@ -67,6 +69,7 @@ function getMaleNames(culture) {
             break;
         case "Imperial":
             names = [
+                "Aldas",
                 "Argal",
                 "Atharos",
                 "Athyer",
@@ -85,6 +88,7 @@ function getMaleNames(culture) {
                 "Magnus",
                 "Nosten",
                 "Otto",
+                "Silas",
                 "Syras",
                 "Tanogvas",
                 "Tanos",
