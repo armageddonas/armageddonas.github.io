@@ -57,6 +57,7 @@ function getMaleNames(culture) {
                 "Tarestan",
                 "Thomas"
             ]
+            break;
         case "Ad'Ashani":
             names = [
                 "Ahewa",
@@ -152,6 +153,7 @@ function getFemaleNames(culture) {
                 "Nostera",
                 "Tania"
             ]
+            break;
         case "Imperial":
             names = [
                 "Alva",
