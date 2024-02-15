@@ -14,10 +14,6 @@ window.addEventListener('load', function () {
     }
     var loc = window.location.pathname;
     var dir = loc.substring(0, loc.lastIndexOf('/'));
-    dir = dir.substring(0, dir.lastIndexOf('/')).split('/').slice(-1)[0];
-    if (dir === "generators") {
-        var temp = document.getElementsByClassName("banner-links");
-        console.log(temp)
-    }
+    dir = dir.substring(0, dir.lastIndexOf('/')).split('/').slice(-1)[0];//get name of folder
 
 });
