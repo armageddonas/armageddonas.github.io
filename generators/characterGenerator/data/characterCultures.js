@@ -3,8 +3,8 @@ function getCultures() {
         "Athelian",
         "Dernian",
         "Ad'Ashani",
-        "Imperial"
-        "Sonorian",
+        "Imperial",
+        "Sonorian"
         //"Tali",
         //"Ulkasho"
     ]
