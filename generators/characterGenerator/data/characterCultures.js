@@ -4,7 +4,7 @@ function getCultures() {
         "Dernian",
         "Ad'Ashani",
         "Imperial"
-        //"Sonorian",
+        "Sonorian",
         //"Tali",
         //"Ulkasho"
     ]

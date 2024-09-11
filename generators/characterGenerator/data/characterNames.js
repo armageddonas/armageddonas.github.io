@@ -15,12 +15,14 @@ function getMaleNames(culture) {
                 "Beren",
                 "Bobart",
                 "Crast",
+                "Darathan",
                 "Darcel",
                 "Denos",
                 "Esrel",
                 "Fleras",
                 "Harkel",
                 "Koronios",
+                "Marten",
                 "Memor",
                 "Nimber",
                 "Nosten",
@@ -40,13 +42,15 @@ function getMaleNames(culture) {
                 "Bethend",
                 "Bobart",
                 "Cillian",
+                "Darathan",
                 "Darcel",
                 "Denan",
                 "Harkel",
                 "Jeron",
                 "Koran",
-                "Mikal",
+                "Marten",
                 "Memor",
+                "Mikal",
                 "Nimber",
                 "Nosten",
                 "Rurik",
@@ -100,6 +104,16 @@ function getMaleNames(culture) {
                 "Vanecas"
             ]
             break;
+        case "Sonorian":
+            names = [
+                "Crast",
+                "Memor",
+                "Rodgar",
+                "Rurik",
+                "Sirik",
+                "Sveranek"
+            ]
+            break;
         
     }
 
@@ -123,7 +137,7 @@ function getFemaleNames(culture) {
                 "Irisa",
                 "Koritha",
                 "Koronia",
-                "Liann",
+                "Lian",
                 "Meline",
                 "Miranya",
                 "Tania"
@@ -172,6 +186,13 @@ function getFemaleNames(culture) {
                 "Stora",
                 "Tania",
                 "Tharesia"
+            ]
+            break;
+        case "Sonorian":
+            names = [
+                "Audreys",
+                "Frieda",
+                "Lian"
             ]
             break;
     }
