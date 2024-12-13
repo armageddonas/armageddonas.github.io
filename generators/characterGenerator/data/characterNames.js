@@ -107,10 +107,12 @@ function getMaleNames(culture) {
         case "Sonorian":
             names = [
                 "Crast",
+                "Makr",
                 "Memor",
                 "Rodgar",
                 "Rurik",
                 "Sirik",
+                "Sravian",
                 "Sveranek"
             ]
             break;
