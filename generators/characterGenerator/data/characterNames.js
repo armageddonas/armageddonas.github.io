@@ -116,7 +116,10 @@ function getMaleNames(culture) {
                 "Sveranek"
             ]
             break;
-        
+        case "Dortook":
+            names = [
+                "Gorash"
+            ]
     }
 
     return names;
