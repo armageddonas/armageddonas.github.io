@@ -1,0 +1,12 @@
+1. Create a new Tiddler called CustomBanner with tag $:/tags/PageTemplate and generally this body:
+
+<embed type="text/html" src="../components/bannerMenu/bannerMenu.html" loading="eager" class="embeded-site embeddedBanner"/>
+
+<style>
+.embeddedBanner {
+width:100%
+}
+
+</style>
+
+2. Modify $:/core/ui/PageTemplate and add {{CustomBanner}} under the <div class=<<containerClasses>>>

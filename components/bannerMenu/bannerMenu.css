@@ -1,3 +1,13 @@
+body {
+    background-color: #ffffff00 !important;
+    height: fit-content;
+    overflow: hidden;
+}
+
+head {
+    height: auto;
+}
+
 .banner-header {
     width: 100%;
     display: flex;
@@ -68,9 +78,14 @@
     flex-direction: column;
 }
 
+.generators-dropdown-content a {
+    padding: 0.5em 0;
+}
+
 .generators-dropdown-content a:hover {
     background-color: #ddd;
 }
+
 .banner-nav-dropped {
     transition: 0.3s;
     margin: var(--dl-space-space-twounits);

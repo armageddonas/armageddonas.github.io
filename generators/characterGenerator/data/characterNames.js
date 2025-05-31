@@ -67,8 +67,10 @@ function getMaleNames(culture) {
                 "Ahewa",
                 "Arhan",
                 "Asharajan",
+                "Hamar",
                 "Kahan",
                 "Kehar",
+                "Nori’kawua",
                 "Oshowa",
                 "Ramar"
             ]
