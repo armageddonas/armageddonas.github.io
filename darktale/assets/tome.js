@@ -254,6 +254,26 @@
   window.addEventListener('hashchange', followHash);
   followHash();
 
+  // ---------- Back to top ----------
+
+  var topBtn = $('.back-top');
+  if (topBtn) {
+    var showTop = function () {
+      // After 400px, or halfway down on shorter pages.
+      var max = document.documentElement.scrollHeight - window.innerHeight;
+      topBtn.classList.toggle('on', max > 0 && window.scrollY > Math.min(400, max / 2));
+    };
+    window.addEventListener('scroll', showTop, { passive: true });
+    showTop();
+    topBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+      window.scrollTo({ top: 0 });
+      if (location.hash) history.replaceState(null, '', location.pathname + location.search);
+      var skip = $('.brand');
+      if (skip) skip.focus({ preventScroll: true });
+    });
+  }
+
   // ---------- Scrollspy ----------
 
   var spies = $$('[data-spy]');
@@ -282,11 +302,13 @@
       rows.forEach(function (r) {
         var ok = (!voc || r.getAttribute('data-voc') === voc) && (!q || r.getAttribute('data-text').indexOf(q) >= 0);
         r.hidden = !ok;
-        if (ok) n++;
+        // Rows of another setting's vocations are hidden by the setting switch and aren't counted.
+        if (ok && !(r.hasAttribute('data-setting-only') && !r.classList.contains('show'))) n++;
       });
       count.textContent = n + (n === 1 ? ' talent' : ' talents');
     };
     tiInput.addEventListener('input', apply);
+    apply();
     $$('[data-filter-voc]').forEach(function (b) {
       b.addEventListener('click', function () {
         voc = b.getAttribute('data-filter-voc');

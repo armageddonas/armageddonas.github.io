@@ -214,6 +214,8 @@ hr { border: 0; border-top: 1px solid var(--border); margin: 40px 0; }
 [data-setting-only].show { display: block; }
 tr[data-setting-only].show { display: table-row; }
 .jump-chips a[data-setting-only].show { display: inline-flex; }
+.voc-card[data-setting-only].show, .m-kids a[data-setting-only].show { display: flex; }
+.chip-btn[data-setting-only].show { display: inline-flex; }
 html:not(.js) [data-setting-only] { display: block; }
 html:not(.js) tr[data-setting-only] { display: table-row; }
 
@@ -411,6 +413,7 @@ html:not(.js) .tabs { display: none; }
 
 /* Talent index */
 .ti-controls { display: flex; flex-direction: column; gap: 12px; margin-bottom: 8px; }
+.ti-help { margin: 0; color: var(--muted-2); }
 .ti-controls input { height: 44px; max-width: 520px; border: 1px solid var(--border-2); padding: 0 14px; font: inherit; font-size: 16px; background: var(--input); color: var(--head); }
 .chips { display: flex; flex-wrap: wrap; gap: 8px; }
 .chip-btn {
@@ -506,6 +509,20 @@ details[open] > summary.m-row::after { content: '▴'; }
 .seg button + button { border-left: 1px solid var(--border-2); }
 .seg button[aria-pressed="true"] { background: var(--accent); color: var(--on-accent); font-weight: 600; }
 body.locked { overflow: hidden; }
+
+/* Floating back-to-top button: appears once the reader has scrolled down. Without JavaScript it's always there. */
+.back-top {
+  position: fixed; right: 20px; bottom: 20px; z-index: 60;
+  width: 46px; height: 46px; display: flex; align-items: center; justify-content: center;
+  border-radius: 50%; border: 1px solid var(--border-2); background: var(--card); color: var(--accent);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+  transition: opacity 0.2s, transform 0.2s, background-color 0.15s;
+}
+.back-top:hover { background: var(--accent); color: var(--on-accent); border-color: var(--accent); text-decoration: none; }
+.js .back-top:not(.on) { opacity: 0; transform: translateY(8px); pointer-events: none; }
+body.locked .back-top { display: none; }
+@media (prefers-reduced-motion: reduce) { .back-top { transition: none; } }
+@media print { .back-top { display: none; } }
 
 .phone-nav { display: none; }
 

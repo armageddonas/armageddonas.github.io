@@ -34,7 +34,7 @@
     <button type="button" class="icon-btn" data-open="search" aria-label="Search"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" stroke-width="2"/><path d="M15.5 15.5L21 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
     <button type="button" class="icon-btn" data-open="menu" aria-label="Menu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
   </div>
-  <nav class="catbar" aria-label="Main"><div class="wrap cat-row"><a href="../rules/index.html">Rules</a><a href="../character-creation.html">Character Creation</a><a href="../vocations/index.html">Vocations</a><a href="index.html" class="current" aria-current="true">Talents</a><a href="../conditions.html">Conditions</a><a href="../equipment.html">Equipment</a><a href="../advancement.html">Advancement</a><a href="../downtime.html">Downtime</a><details class="setting-switch"><summary>Settings: <span data-setting-label>Rules only</span> ▾</summary>
+  <nav class="catbar" aria-label="Main"><div class="wrap cat-row"><a href="../rules/index.html">Rules</a><a href="../character-creation.html">Character Creation</a><a href="../vocations/index.html">Vocations</a><a href="all.html" class="current" aria-current="true">Talents</a><a href="../conditions.html">Conditions</a><a href="../equipment.html">Equipment</a><a href="../advancement.html">Advancement</a><a href="../downtime.html">Downtime</a><details class="setting-switch"><summary>Settings: <span data-setting-label>Rules only</span> ▾</summary>
       <div class="setting-menu"><a href="../index.html" data-set-setting="">Rules only</a><a href="../settings/duskworld/index.html" data-set-setting="duskworld">Duskworld</a></div></details></div></nav>
 </header>
 <section class="hero"><div class="wrap">
@@ -51,10 +51,11 @@
   <main id="main" class="content">
     
     <div class="ti-controls">
+        <p class="ti-help">New to talents? <a href="index.html">How to read and take talents</a>: costs, prerequisites, trees and traits.</p>
         <label class="sr" for="ti-filter">Filter talents</label>
         <input id="ti-filter" type="search" placeholder="Filter by name, effect or prerequisite…" data-ti-filter>
-        <div class="chips"><button type="button" class="chip-btn" data-filter-voc="" aria-pressed="true">All</button><button type="button" class="chip-btn" data-filter-voc="agent">Agent</button><button type="button" class="chip-btn" data-filter-voc="envoy">Envoy</button><button type="button" class="chip-btn" data-filter-voc="hunter">Hunter</button><button type="button" class="chip-btn" data-filter-voc="leader">Leader</button><button type="button" class="chip-btn" data-filter-voc="scholar">Scholar</button><button type="button" class="chip-btn" data-filter-voc="warrior">Warrior</button></div>
-        <p class="muted" data-ti-count>144 talents</p>
+        <div class="chips"><button type="button" class="chip-btn" data-filter-voc="" aria-pressed="true">All</button><button type="button" class="chip-btn" data-filter-voc="agent">Agent</button><button type="button" class="chip-btn" data-filter-voc="envoy">Envoy</button><button type="button" class="chip-btn" data-filter-voc="hunter">Hunter</button><button type="button" class="chip-btn" data-filter-voc="leader">Leader</button><button type="button" class="chip-btn" data-filter-voc="scholar">Scholar</button><button type="button" class="chip-btn" data-filter-voc="warrior">Warrior</button><button type="button" class="chip-btn" data-filter-voc="dreamshaper" data-setting-only="duskworld">Dreamshaper</button></div>
+        <p class="muted" data-ti-count>158 talents</p>
       </div>
       <div class="table-wrap"><table class="ti-table"><thead><tr><th>Talent</th><th>Vocation › Tree</th><th>Cost</th><th>Prerequisites</th><th>After</th></tr></thead><tbody><tr data-voc="agent" data-text="watchful eye use opportunist on the stakes die of a willing ally close to you. this counts as your use of opportunist this round. investigation 2+ investigator agent">
         <td><a href="../vocations/agent.html#investigator-watchful-eye"><b>Watchful Eye</b></a><div class="ti-effect">Use Opportunist on the stakes die of a willing ally close to you. This counts as your use of Opportunist this round.</div></td>
@@ -776,7 +777,77 @@
         <td>Warrior <span class="muted">›</span> Soldier</td>
         <td>1 action</td>
         <td><span class="prereq">Weaponry, Brawl or Ranged 3+ (the weapon's skill)</span></td>
-        <td>Hardy</td></tr></tbody></table></div>
+        <td>Hardy</td></tr><tr data-voc="dreamshaper" data-setting-only="duskworld" data-text="figments 1 reverie. roll wits + dreamshaping to create an illusion of sight and sound within 10 meters, filling up to one small area per dreamshaping dot. moving it takes 1 action. anyone who touches it, or has a reason to doubt it, rolls wits + composure contested by your roll to see through it. a figment can hide you as if you were obscured, and you can use it to set up anyone it fools.  mesmer dreamshaper">
+        <td><a href="../vocations/dreamshaper.html#mesmer-figments"><b>Figments</b></a><div class="ti-effect">1 Reverie. Roll Wits + Dreamshaping to create an illusion of sight and sound within 10 meters, filling up to one small area per Dreamshaping dot. Moving it takes 1 action. Anyone who touches it, or has a reason to doubt it, rolls Wits + Composure contested by your roll to see through it. A figment can hide you as if you were Obscured, and you can use it to <a href="../rules/turns-and-actions.html#actions">set up</a> anyone it fools.</div></td>
+        <td>Dreamshaper <span class="muted">›</span> Mesmer</td>
+        <td>2 actions</td>
+        <td>—</td>
+        <td>key talent</td></tr><tr data-voc="dreamshaper" data-setting-only="duskworld" data-text="mental awakening 1 reverie. roll intelligence + dreamshaping. your mind opens to the everdream: +2d to mental skill rolls while it lasts.  mesmer dreamshaper">
+        <td><a href="../vocations/dreamshaper.html#mesmer-mental-awakening"><b>Mental Awakening</b></a><div class="ti-effect">1 Reverie. Roll Intelligence + Dreamshaping. Your mind opens to the Everdream: +2d to Mental skill rolls while it lasts.</div></td>
+        <td>Dreamshaper <span class="muted">›</span> Mesmer</td>
+        <td>2 actions</td>
+        <td>—</td>
+        <td>key talent</td></tr><tr data-voc="dreamshaper" data-setting-only="duskworld" data-text="dreamguise 2 reverie. roll intelligence + dreamshaping to disguise yourself, or a willing creature you touch, as anyone of about the same size. anyone who doubts the disguise contests it with wits + composure. the disguised character gets +1d to subterfuge to pass as that person. dreamshaping 2+ mesmer dreamshaper">
+        <td><a href="../vocations/dreamshaper.html#mesmer-dreamguise"><b>Dreamguise</b></a><div class="ti-effect">2 Reverie. Roll Intelligence + Dreamshaping to disguise yourself, or a willing creature you touch, as anyone of about the same size. Anyone who doubts the disguise contests it with Wits + Composure. The disguised character gets +1d to Subterfuge to pass as that person.</div></td>
+        <td>Dreamshaper <span class="muted">›</span> Mesmer</td>
+        <td>2 actions</td>
+        <td><span class="prereq">Dreamshaping 2+</span></td>
+        <td>Figments</td></tr><tr data-voc="dreamshaper" data-setting-only="duskworld" data-text="dread 2 reverie. push a nightmare into the mind of someone within 10 meters: roll manipulation + dreamshaping, contested by wits + composure. on a success, they're frightened of you while the dreamcraft lasts. dreamshaping 2+ mesmer dreamshaper">
+        <td><a href="../vocations/dreamshaper.html#mesmer-dread"><b>Dread</b></a><div class="ti-effect">2 Reverie. Push a nightmare into the mind of someone within 10 meters: roll Manipulation + Dreamshaping, contested by Wits + Composure. On a success, they're <a href="../rules/conditions.html#conditions">Frightened</a> of you while the dreamcraft lasts.</div></td>
+        <td>Dreamshaper <span class="muted">›</span> Mesmer</td>
+        <td>2 actions</td>
+        <td><span class="prereq">Dreamshaping 2+</span></td>
+        <td>Figments</td></tr><tr data-voc="dreamshaper" data-setting-only="duskworld" data-text="dreamwalk dreamed only. 2 reverie. roll resolve + dreamshaping and choose up to one sleeper per dreamshaping dot, each someone whose face and name you know, within 10 kilometers per dot. while it lasts, whenever you sleep you can enter one of their dreams and speak with them freely; joining another means leaving the first. an unwilling dreamer contests with intelligence + resolve each time you enter. your presence lingers: +1d to your next social roll against them. dreamshaping 3+ mesmer dreamshaper">
+        <td><a href="../vocations/dreamshaper.html#mesmer-dreamwalk"><b>Dreamwalk</b></a><div class="ti-effect">Dreamed only. 2 Reverie. Roll Resolve + Dreamshaping and choose up to one sleeper per Dreamshaping dot, each someone whose face and name you know, within 10 kilometers per dot. While it lasts, whenever you sleep you can enter one of their dreams and speak with them freely; joining another means leaving the first. An unwilling dreamer contests with Intelligence + Resolve each time you enter. Your presence lingers: +1d to your next Social roll against them.</div></td>
+        <td>Dreamshaper <span class="muted">›</span> Mesmer</td>
+        <td>—</td>
+        <td><span class="prereq">Dreamshaping 3+</span></td>
+        <td>Mental Awakening</td></tr><tr data-voc="dreamshaper" data-setting-only="duskworld" data-text="dreamsteal dreamed or deep meditation only. 3 reverie, instant. choose someone you know within 10 kilometers per dreamshaping dot: roll manipulation + dreamshaping, contested by intelligence + resolve. on a success, their next rest gives them nothing (no stress cleared, no healing, nothing refreshed) and they gain 1 stack of exhausted. most dreamshapers find it vile. dreamshaping 3+ mesmer dreamshaper">
+        <td><a href="../vocations/dreamshaper.html#mesmer-dreamsteal"><b>Dreamsteal</b></a><div class="ti-effect">Dreamed or deep meditation only. 3 Reverie, instant. Choose someone you know within 10 kilometers per Dreamshaping dot: roll Manipulation + Dreamshaping, contested by Intelligence + Resolve. On a success, their next rest gives them nothing (no Stress cleared, no healing, nothing refreshed) and they gain 1 stack of Exhausted. Most dreamshapers find it vile.</div></td>
+        <td>Dreamshaper <span class="muted">›</span> Mesmer</td>
+        <td>—</td>
+        <td><span class="prereq">Dreamshaping 3+</span></td>
+        <td>Dreamwalk</td></tr><tr data-voc="dreamshaper" data-setting-only="duskworld" data-text="dreamveil dreamed or deep meditation only. 4 reverie. roll intelligence + dreamshaping. a building, or a camp up to 20 meters across, looks and sounds empty and ordinary from outside. finding it means beating your roll with wits + investigation. hidden kehar settlements are kept this way. dreamshaping 4+ mesmer dreamshaper">
+        <td><a href="../vocations/dreamshaper.html#mesmer-dreamveil"><b>Dreamveil</b></a><div class="ti-effect">Dreamed or deep meditation only. 4 Reverie. Roll Intelligence + Dreamshaping. A building, or a camp up to 20 meters across, looks and sounds empty and ordinary from outside. Finding it means beating your roll with Wits + Investigation. Hidden kehar settlements are kept this way.</div></td>
+        <td>Dreamshaper <span class="muted">›</span> Mesmer</td>
+        <td>—</td>
+        <td><span class="prereq">Dreamshaping 4+</span></td>
+        <td>Dreamguise</td></tr><tr data-voc="dreamshaper" data-setting-only="duskworld" data-text="enthrall 3 reverie. roll manipulation + dreamshaping, contested by intelligence + resolve. on a success, the target obeys one short command while the dreamcraft lasts, following the compulsion rules. dreamshaping 4+ mesmer dreamshaper">
+        <td><a href="../vocations/dreamshaper.html#mesmer-enthrall"><b>Enthrall</b></a><div class="ti-effect">3 Reverie. Roll Manipulation + Dreamshaping, contested by Intelligence + Resolve. On a success, the target obeys one short command while the dreamcraft lasts, following the <a href="../rules/skills-and-specialties.html#compulsion">compulsion</a> rules.</div></td>
+        <td>Dreamshaper <span class="muted">›</span> Mesmer</td>
+        <td>2 actions</td>
+        <td><span class="prereq">Dreamshaping 4+</span></td>
+        <td>Dread</td></tr><tr data-voc="dreamshaper" data-setting-only="duskworld" data-text="dreamstuff 1 reverie. roll intelligence + dreamshaping to shape a simple object of up to bulk 1: a rope, a tool, a key blank, or a weapon that counts as light. nothing with intricate moving parts. a tool works as a kit with charges equal to your successes, up to 3.  maker dreamshaper">
+        <td><a href="../vocations/dreamshaper.html#maker-dreamstuff"><b>Dreamstuff</b></a><div class="ti-effect">1 Reverie. Roll Intelligence + Dreamshaping to shape a simple object of up to bulk 1: a rope, a tool, a key blank, or a weapon that counts as Light. Nothing with intricate moving parts. A tool works as a <a href="../rules/armor-weapons-and-kits.html#kits">kit</a> with charges equal to your successes, up to 3.</div></td>
+        <td>Dreamshaper <span class="muted">›</span> Maker</td>
+        <td>2 actions</td>
+        <td>—</td>
+        <td>key talent</td></tr><tr data-voc="dreamshaper" data-setting-only="duskworld" data-text="reshape 2 reverie. roll intelligence + dreamshaping to change one property of a non-living object you touch, up to bulk 1 per dreamshaping dot: its shape, hardness or texture. make a broken item work, soften a lock until it opens (your roll against the lock), or raise handholds in a wall. dreamshaping 2+ maker dreamshaper">
+        <td><a href="../vocations/dreamshaper.html#maker-reshape"><b>Reshape</b></a><div class="ti-effect">2 Reverie. Roll Intelligence + Dreamshaping to change one property of a non-living object you touch, up to bulk 1 per Dreamshaping dot: its shape, hardness or texture. Make a broken item work, soften a lock until it opens (your roll against the lock), or raise handholds in a wall.</div></td>
+        <td>Dreamshaper <span class="muted">›</span> Maker</td>
+        <td>2 actions</td>
+        <td><span class="prereq">Dreamshaping 2+</span></td>
+        <td>Dreamstuff</td></tr><tr data-voc="dreamshaper" data-setting-only="duskworld" data-text="dream companion 3 reverie. roll presence + dreamshaping to call a creature from the everdream. it's a companion with a rating of your dreamshaping − 1, proficient in what you choose. it dissolves when the dreamcraft ends or its health fills. you can have only one at a time. dreamshaping 3+ maker dreamshaper">
+        <td><a href="../vocations/dreamshaper.html#maker-dream-companion"><b>Dream Companion</b></a><div class="ti-effect">3 Reverie. Roll Presence + Dreamshaping to call a creature from the Everdream. It's a <a href="../rules/npcs-and-companions.html#companions">companion</a> with a rating of your Dreamshaping − 1, proficient in what you choose. It dissolves when the dreamcraft ends or its Health fills. You can have only one at a time.</div></td>
+        <td>Dreamshaper <span class="muted">›</span> Maker</td>
+        <td>2 actions</td>
+        <td><span class="prereq">Dreamshaping 3+</span></td>
+        <td>Dreamstuff</td></tr><tr data-voc="dreamshaper" data-setting-only="duskworld" data-text="shape ground 2 reverie. roll presence + dreamshaping. within 10 meters, turn a small area into difficult terrain, smooth difficult terrain away, or raise a wall that gives full cover. dreamshaping 3+ maker dreamshaper">
+        <td><a href="../vocations/dreamshaper.html#maker-shape-ground"><b>Shape Ground</b></a><div class="ti-effect">2 Reverie. Roll Presence + Dreamshaping. Within 10 meters, turn a small area into difficult terrain, smooth difficult terrain away, or raise a wall that gives full cover.</div></td>
+        <td>Dreamshaper <span class="muted">›</span> Maker</td>
+        <td>2 actions</td>
+        <td><span class="prereq">Dreamshaping 3+</span></td>
+        <td>Reshape</td></tr><tr data-voc="dreamshaper" data-setting-only="duskworld" data-text="unmake 3 reverie, instant. roll intelligence + dreamshaping to return a non-living object of up to bulk 1 per dreamshaping dot to the everdream. a device contests with its own roll. against another dreamshaper's dreamcraft or a creature of the everdream, it's contested by their dreamcraft roll or rating; if you win, it ends. dreamshaping 4+ maker dreamshaper">
+        <td><a href="../vocations/dreamshaper.html#maker-unmake"><b>Unmake</b></a><div class="ti-effect">3 Reverie, instant. Roll Intelligence + Dreamshaping to return a non-living object of up to bulk 1 per Dreamshaping dot to the Everdream. A Device contests with its own roll. Against another dreamshaper's dreamcraft or a creature of the Everdream, it's contested by their dreamcraft roll or rating; if you win, it ends.</div></td>
+        <td>Dreamshaper <span class="muted">›</span> Maker</td>
+        <td>2 actions</td>
+        <td><span class="prereq">Dreamshaping 4+</span></td>
+        <td>Reshape</td></tr><tr data-voc="dreamshaper" data-setting-only="duskworld" data-text="rewrite 5 reverie, once per day. the world is only another dream. roll presence + dreamshaping to change one thing about your surroundings within 10 meters, with the gm's approval: a fall becomes a slow drift, a door becomes a wall, a fire becomes cold smoke. creatures it affects contest with dexterity + stamina. when the dreamcraft ends, so does the change. dreamshaping 4+ maker dreamshaper">
+        <td><a href="../vocations/dreamshaper.html#maker-rewrite"><b>Rewrite</b></a><div class="ti-effect">5 Reverie, once per day. The world is only another dream. Roll Presence + Dreamshaping to change one thing about your surroundings within 10 meters, with the GM's approval: a fall becomes a slow drift, a door becomes a wall, a fire becomes cold smoke. Creatures it affects contest with Dexterity + Stamina. When the dreamcraft ends, so does the change.</div></td>
+        <td>Dreamshaper <span class="muted">›</span> Maker</td>
+        <td>3 actions</td>
+        <td><span class="prereq">Dreamshaping 4+</span></td>
+        <td>Dream Companion or Unmake</td></tr></tbody></table></div>
     <nav class="prevnext" aria-label="Previous and next">
       <a class="prev" href="index.html"><span>Previous</span>← Talents</a>
       <a class="next" href="../conditions.html"><span>Next</span>Conditions →</a>
@@ -794,7 +865,7 @@
   <form class="ov-search" action="../search.html" role="search"><label class="sr" for="mq">Search</label><input id="mq" name="q" type="search" placeholder="Search rules, talents, conditions…"><button>Search</button></form>
   <nav class="m-nav" aria-label="Site"><details class="m-group"><summary class="m-row">Rules</summary>
         <div class="m-kids"><a href="../rules/rolls-and-results.html">I. Rolls and results</a><a href="../rules/skills-and-specialties.html">II. Skills and specialties</a><a href="../rules/stress-and-madness.html">III. Stress and madness</a><a href="../rules/turns-and-actions.html">IV. Turns and actions</a><a href="../rules/attacks.html">V. Attacks</a><a href="../rules/defense-and-reactions.html">VI. Defense and reactions</a><a href="../rules/armor-weapons-and-kits.html">VII. Armor, weapons and kits</a><a href="../rules/npcs-and-companions.html">VIII. NPCs and companions</a><a href="../rules/damage-and-health.html">IX. Damage and Health</a><a href="../rules/rest.html">X. Rest</a><a href="../rules/conditions.html">XI. Conditions</a></div></details><a class="m-row" href="../character-creation.html">Character Creation</a><details class="m-group"><summary class="m-row">Vocations</summary>
-        <div class="m-kids"><a href="../vocations/agent.html">Agent</a><a href="../vocations/envoy.html">Envoy</a><a href="../vocations/hunter.html">Hunter</a><a href="../vocations/leader.html">Leader</a><a href="../vocations/scholar.html">Scholar</a><a href="../vocations/warrior.html">Warrior</a></div></details><details class="m-group" open><summary class="m-row current">Talents</summary>
+        <div class="m-kids"><a href="../vocations/agent.html">Agent</a><a href="../vocations/envoy.html">Envoy</a><a href="../vocations/hunter.html">Hunter</a><a href="../vocations/leader.html">Leader</a><a href="../vocations/scholar.html">Scholar</a><a href="../vocations/warrior.html">Warrior</a><a href="../vocations/dreamshaper.html" data-setting-only="duskworld">Dreamshaper</a></div></details><details class="m-group" open><summary class="m-row current">Talents</summary>
         <div class="m-kids"><a href="index.html">Reading talents</a><a href="all.html" aria-current="page">Talent index</a></div></details><a class="m-row" href="../conditions.html">Conditions</a><details class="m-group"><summary class="m-row">Equipment</summary>
         <div class="m-kids"><a href="../equipment.html">Equipment</a><a href="../crafting.html">Crafting</a></div></details><a class="m-row" href="../advancement.html">Advancement</a><a class="m-row" href="../downtime.html">Downtime</a><details class="m-group" data-setting-only="duskworld"><summary class="m-row">Duskworld</summary>
         <div class="m-kids"><a href="../settings/duskworld/index.html">Primer</a><a href="../settings/duskworld/overview.html">Overview</a><a href="../settings/duskworld/stories/the-dimming.html">The Dimming</a><a href="../settings/duskworld/index.html#rules">Duskworld rules</a></div></details><div class="m-switch" role="group" aria-label="Setting"><span class="eyebrow">Setting</span>
@@ -804,6 +875,7 @@
   <div class="ov-head search-head"><label class="sr" for="sq">Search</label><input id="sq" type="search" placeholder="Search rules, talents, conditions…" autocomplete="off" data-live-search><button type="button" class="cancel" data-close>Cancel</button></div>
   <div class="ov-body"><div class="search-chips" data-search-chips></div><div class="search-results" data-search-results></div></div>
 </div>
+<a class="back-top" href="#" aria-label="Back to top" title="Back to top"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
 <script src="../assets/tome.js" defer></script>
 
 </body>
