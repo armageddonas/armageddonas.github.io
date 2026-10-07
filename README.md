@@ -1,16 +1,14 @@
-### Hi there 👋
+# Atwaira
 
-<!--
-**armageddonas/armageddonas** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+Source of https://armageddonas.github.io/. GitHub Pages serves this repo's `main` branch as-is; there's no build step here.
 
-Here are some ideas to get you started:
+## Layout
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+- `index.html`, `assets/hub.css`: the main page. To add a system or world, copy a `<article class="feature">` card in `index.html`. The page is neutral and follows the visitor's light/dark setting; a world card can carry its own palette with a `theme-<world>` class defined in `hub.css` (see `.theme-duskworld`).
+- `404.html`: shown by GitHub Pages for any missing path.
+- `darktale/`: the Darktale rules wiki. **Generated, don't edit by hand.** It's built from the private sources in `C:\Creativity Programs\Darktale System` with `npm run publish` there, which replaces this whole folder.
+- `.nojekyll`: tells GitHub Pages to serve the files without running Jekyll.
+
+## History
+
+The previous version of the site (Lore Wiki, Realm of Ashes, generators, Kedorithian calendar) is on the `legacy` branch. Sections move here one at a time as they're migrated.

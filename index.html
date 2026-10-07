@@ -1,104 +1,100 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <title>Atwaira Main site</title>
-    <meta property="og:title" content="Main site" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta charset="utf-8" />
-    <meta property="twitter:card" content="summary_large_image" />
-
-    <link rel="stylesheet" href="./components/bannerMenu/bannerMenu.css" />
-    <script type="text/javascript" src="./components/bannerMenu/bannerMenu.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Atwaira · Worlds and systems</title>
+<meta name="description" content="Tabletop RPG systems, the worlds built on them, and the stories told there.">
+<meta property="og:title" content="Atwaira">
+<meta property="og:description" content="Tabletop RPG systems, the worlds built on them, and the stories told there.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,400&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/hub.css">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 </head>
 <body>
-    <link rel="stylesheet" href="./style.css" />
-    <div>
-        <link href="./index.css" rel="stylesheet" />
+<a class="skip" href="#main">Skip to content</a>
 
-        <div class="home-container">
-            <div class="home-hero">
-                <div class="home-hero1">
-                    <div class="home-container1">
-                        <h1 class="home-hero-heading heading1">Atwaira</h1>
-                        <span class="home-hero-sub-heading">
-                            Everything about the world of Atwaira and the Firetale System.
-                        </span>
-                    </div>
-                </div>
-            </div>
-            <div id="bannerMenu"></div>
-            <div class="home-features">
-                <div class="home-features-container">
-                    <div class="home-features1">
-                        <div class="home-container2">
-                            <h2 class="home-features-heading heading2">
-                                Choose a page to explore
-                            </h2>
-                        </div>
-                        <div class="home-container3">
-                            <a href="./loreWiki/index.html">
-								<div class="feature-card-feature-card">
-                                    <div class="feature-card-container">
-                                        <h3 class="feature-card-text heading3">
-                                            <span>Lore of the World</span>
-                                        </h3>
-                                        <span class="feature-card-text1">
-                                            <span>
-                                                A wiki dedicated to information about the world of
-                                                Atwaira.
-                                            </span>
-                                        </span>
-                                    </div>
-								</div>
-							</a>                                
-							<a href="./gameWiki/index.html">
-								<div class="feature-card-feature-card">
-                                    <div class="feature-card-container">
-                                        <h3 class="feature-card-text heading3">
-                                            <span>Realm of Ashes</span>
-                                        </h3>
-                                        <span class="feature-card-text1">
-                                            <span>
-                                                The mechanics and information about the Realm of Ashes
-                                                campaign.
-                                            </span>
-                                        </span>
-                                    </div>
-								</div>
-							</a>                                
-							<a href="./generators/characterGenerator/index.html">
-								<div class="feature-card-feature-card">
-                                    <div class="feature-card-container">
-                                        <h3 class="feature-card-text heading3">
-                                            <span>Character Generator</span>
-                                        </h3>
-                                        <span class="feature-card-text1">
-                                            <span>
-                                                A character data generator.
-                                            </span>
-                                        </span>
-                                    </div>
-								</div>
-							</a>                              
-							<a href="./calendar/index.html">
-								<div class="feature-card-feature-card">
-                                    <div class="feature-card-container">
-                                        <h3 class="feature-card-text heading3">
-                                            <span>Kedorithian Calendar</span>
-                                        </h3>
-                                        <span class="feature-card-text1">
-                                            <span>
-                                                A detailed calendar of the days, months, years, and notable events in Kedorith.
-                                            </span>
-                                        </span>
-                                    </div>
-								</div>
-							</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+<header class="topbar">
+  <div class="wrap top-row">
+    <a class="brand" href="index.html">Atwaira</a>
+    <nav class="top-nav" aria-label="Main">
+      <a href="#systems">Systems</a>
+      <a href="#worlds">Worlds</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="glow" aria-hidden="true"></div>
+  <div class="wrap hero-inner">
+    <div class="eyebrow">Worlds · Systems · Stories</div>
+    <h1>Atwaira</h1>
+    <p class="hero-intro">Tabletop roleplaying systems, the worlds built on them, and the stories told there.</p>
+  </div>
+</section>
+
+<main id="main" class="wrap">
+
+  <!--
+    To add a section: copy one <a class="feature"> block into the right grid.
+    Systems are rule sets; worlds are settings (one system can have many).
+  -->
+
+  <section class="block" id="systems" aria-labelledby="systems-h">
+    <div class="block-head">
+      <h2 id="systems-h">Systems</h2>
+      <p>Rules engines, setting-agnostic at the core.</p>
     </div>
+    <div class="grid">
+      <article class="feature system">
+        <div class="f-top"><span class="eyebrow">d6 system</span><span class="tag">Rules wiki</span></div>
+        <h3><a class="stretch" href="darktale/index.html">Darktale</a></h3>
+        <p class="f-text">A d6 engine where Attribute + Skill dice succeed on 5–6, Stress fuels every push, and characters grow through vocations, talent trees and the communities they come from.</p>
+        <div class="roll" aria-label="Core roll: Attribute plus Skill in d6, success on 5 or 6">
+          <span class="r-term">Attribute</span><span class="r-op">+</span><span class="r-term">Skill</span><span class="r-op">in d6 · success on</span><span class="r-term">5–6</span>
+        </div>
+        <nav class="f-links" aria-label="Darktale">
+          <a href="darktale/rules/index.html">Core Rules</a>
+          <a href="darktale/character-creation.html">Character Creation</a>
+          <a href="darktale/vocations/index.html">Vocations</a>
+          <a href="darktale/talents/all.html">Talent index</a>
+          <a href="darktale/conditions.html">Conditions</a>
+        </nav>
+      </article>
+    </div>
+  </section>
+
+  <section class="block" id="worlds" aria-labelledby="worlds-h">
+    <div class="block-head">
+      <h2 id="worlds-h">Worlds</h2>
+      <p>Settings, their lore, and the stories played in them.</p>
+    </div>
+    <div class="grid">
+      <article class="feature world theme-duskworld">
+        <div class="f-top"><span class="eyebrow">Eladria · a Darktale setting</span><span class="tag">Setting</span></div>
+        <h3><a class="stretch" href="darktale/settings/duskworld/index.html">Duskworld</a></h3>
+        <p class="f-text f-quote">What was once a world of light and color has now succumbed to the Dusk and the grey.</p>
+        <p class="f-text">Behind the Beacons of Dawnkeep, the last Free City holds out against a corruption that drains color, twists magic and unmakes what it touches.</p>
+        <nav class="f-links" aria-label="Duskworld">
+          <a href="darktale/settings/duskworld/index.html">Primer</a>
+          <a href="darktale/settings/duskworld/overview.html">Overview</a>
+          <a href="darktale/settings/duskworld/races.html">Races</a>
+          <a href="darktale/settings/duskworld/communities.html">Communities</a>
+          <a href="darktale/settings/duskworld/the-dusk.html">The Dusk</a>
+        </nav>
+      </article>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-row">
+    <span><b>Atwaira</b> · worlds and systems</span>
+    <span><a href="darktale/index.html">Darktale</a> · <a href="darktale/settings/duskworld/index.html">Duskworld</a></span>
+  </div>
+</footer>
 </body>
 </html>
