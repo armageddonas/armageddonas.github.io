@@ -414,6 +414,12 @@ html:not(.js) .tabs { display: none; }
 /* Talent index */
 .ti-controls { display: flex; flex-direction: column; gap: 12px; margin-bottom: 8px; }
 .ti-help { margin: 0; color: var(--muted-2); }
+/* Core content a selected setting is incompatible with */
+.world-badge[data-setting-only].show { display: inline-block; }
+tr.is-incompatible td { color: var(--muted-2); text-decoration: line-through; }
+.incompat.is-incompatible > :not(.incompat-note) { opacity: 0.55; }
+.incompat-note { margin: 0 0 6px; }
+.incompat-note:not(:has(.show)) { display: none; }
 .ti-controls input { height: 44px; max-width: 520px; border: 1px solid var(--border-2); padding: 0 14px; font: inherit; font-size: 16px; background: var(--input); color: var(--head); }
 .chips { display: flex; flex-wrap: wrap; gap: 8px; }
 .chip-btn {

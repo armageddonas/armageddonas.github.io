@@ -24,6 +24,13 @@
     $$('[data-setting-only]').forEach(function (el) {
       el.classList.toggle('show', el.getAttribute('data-setting-only') === cur);
     });
+    // Core content a selected setting is incompatible with (the core pistol in Duskworld) is dimmed, not removed:
+    // with several settings selected, another may still use it.
+    var selected = cur ? cur.split(' ') : [];
+    $$('[data-incompatible]').forEach(function (el) {
+      var off = el.getAttribute('data-incompatible').split(' ');
+      el.classList.toggle('is-incompatible', selected.some(function (k) { return off.indexOf(k) >= 0; }));
+    });
     $$('[data-set-setting]').forEach(function (el) {
       var on = el.getAttribute('data-set-setting') === cur;
       el.setAttribute(el.tagName === 'BUTTON' ? 'aria-pressed' : 'aria-checked', on ? 'true' : 'false');

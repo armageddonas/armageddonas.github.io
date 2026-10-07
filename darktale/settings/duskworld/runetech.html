@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en" data-root="../../" data-page="settings/duskworld/runetech.html" data-setting="duskworld" data-world="duskworld" data-default-setting="">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Runetech · Darktale</title>
+<meta name="description" content="Runetech harnesses the power of the True Runes in objects and machines, joining magic and technology. It's uncommon but not rare: few ordinary people own a piece, but everyone in Mendris lives beside ">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/tome.css">
+<link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+<script>(function (h) {
+  h.classList.add('js');
+  // Pages outside a setting take the palette of the selected setting, before first paint.
+  if (h.getAttribute('data-world')) return;
+  var v = null;
+  try { v = localStorage.getItem('darktale.setting'); } catch (e) {}
+  if (v === null) v = h.getAttribute('data-default-setting') || '';
+  if (v) h.setAttribute('data-world', v);
+})(document.documentElement)</script>
+</head>
+<body class="kind-doc">
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <div class="wrap top-row">
+    <a class="home-link" href="../../../index.html">Atwaira</a><span class="home-sep" aria-hidden="true">/</span>
+    <a class="brand" href="../../index.html">Darktale</a>
+    <form class="search-form" action="../../search.html" role="search">
+      <label class="sr" for="q">Search the rules</label>
+      <input id="q" name="q" type="search" placeholder="Search rules, talents, conditions…" autocomplete="off">
+      <button type="submit">Search</button>
+    </form>
+    <button type="button" class="icon-btn" data-open="search" aria-label="Search"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" stroke-width="2"/><path d="M15.5 15.5L21 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+    <button type="button" class="icon-btn" data-open="menu" aria-label="Menu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+  </div>
+  <nav class="catbar" aria-label="Main"><div class="wrap cat-row"><a href="../../rules/index.html">Rules</a><a href="../../character-creation.html">Character Creation</a><a href="../../vocations/index.html">Vocations</a><a href="../../talents/all.html">Talents</a><a href="../../conditions.html">Conditions</a><a href="../../equipment.html">Equipment</a><a href="../../advancement.html">Advancement</a><a href="../../downtime.html">Downtime</a><details class="setting-switch"><summary>Settings: <span data-setting-label>Duskworld</span> ▾</summary>
+      <div class="setting-menu"><a href="../../index.html" data-set-setting="">Rules only</a><a href="index.html" data-set-setting="duskworld">Duskworld</a></div></details></div></nav>
+</header>
+<section class="hero"><div class="wrap">
+      <div class="crumbs"><a href="../../index.html">Darktale</a> <span class="sep">›</span> <a href="index.html">Duskworld</a> <span class="sep">›</span> <span>Runetech</span></div>
+      <div class="hero-row"><div class="hero-main">
+        <div class="eyebrow">Duskworld</div>
+        <h1>Runetech</h1>
+        <p class="hero-intro">Runetech harnesses the power of the True Runes in objects and machines, joining magic and technology. It's uncommon but not rare: few ordinary people own a piece, but everyone in Mendris lives beside it, from the Beacons and the grain silos to the railways and the firearms of the security forces. House Shantari holds runetech, railways and firearms as its purview, and its runesmiths reach the kren factories under the protection of House Valis.</p>
+        
+      </div></div>
+    </div></section>
+<div class="wrap layout">
+  <aside class="side"><div class="side-label">Duskworld</div><nav class="side-nav" aria-label="Duskworld"><a href="index.html">Primer</a><a href="overview.html">Overview</a><a href="runetech.html" aria-current="page">Runetech</a><a class="sub" href="#runetech-items" data-spy="runetech-items">Runetech items</a><a class="sub sub2" href="#runetech-abilities" data-spy="runetech-abilities">Runetech abilities</a><a class="sub" href="#firearms" data-spy="firearms">Firearms</a><a class="sub" href="#dawnlight-and-dimlight" data-spy="dawnlight-and-dimlight">Dawnlight and Dimlight</a><a href="stories/the-dimming.html">The Dimming</a><a href="index.html#rules">Duskworld rules</a></nav></aside>
+  <main id="main" class="content">
+    <div class="phone-nav"><div class="chips-label">On this page</div><nav class="jump-chips" aria-label="On this page"><a href="#runetech-items">Runetech items</a><a class="sub" href="#runetech-abilities">Runetech abilities</a><a href="#firearms">Firearms</a><a href="#dawnlight-and-dimlight">Dawnlight and Dimlight</a></nav></div>
+    <section class="sec"><h2 id="runetech-items">Runetech items</h2>
+<p>Every runetech item holds a <a href="index.html#rules">glint</a>, which powers it like a Device's.</p>
+<ul><li><strong>Runetech</strong> <span class="chip">weapon and armor trait</span> the item holds a glint and has the runetech abilities listed in brackets, such as <em>Runetech (Duskward)</em>. With an empty glint, or none, the abilities don't work.</li><li><strong>Using an ability:</strong> a free action that spends 1 charge from the item's glint, unless the ability says otherwise.</li><li><strong>Refitting and refilling:</strong> a runetech item's glint refills and is refitted like any <a href="../../crafting.html#glints">glint</a>.</li><li><strong>Dream phenomena</strong> and other strange forces can make runetech stop working for a while.</li></ul>
+<h3 id="runetech-abilities">Runetech abilities</h3><ul class="terms"><li><strong>Charged</strong> <span class="chip">firearms</span> the weapon's mechanism runs on its glint. It spends 1 charge the first time it's fired in each minute; with no charge to spend, it can't fire.</li><li><strong>Change Form:</strong> the item switches between its two forms, each with its own statistics.</li><li><strong>Duskward:</strong> on armor, until the start of your next turn, its rating is doubled against attacks by dusktouched and duskborn creatures. On a weapon, until the end of the round, it has Piercing 2 against them.</li></ul></section>
+<section class="sec"><h2 id="firearms">Firearms</h2>
+<p>Firearms rely on intricate runetech mechanisms rather than the wielder's strength: aim, and pull the trigger. In Mendris they're legal only for the Gentry, the Houses and the security forces (see <a href="overview.html#travel-papers">Travel papers</a>). They replace the core pistol and rifle, which don't exist in Duskworld and are marked as incompatible with it.</p>
+<!-- incompatible: system/core-rules.md#weapons Pistol; Rifle -->
+<ul><li><strong>Jams:</strong> a Complication on a firearm attack jams it. Clearing it takes 1 action.</li><li><strong>Ammunition</strong> isn't counted, like other consumables, but the glint is: a firearm with no charge left is dead weight.</li></ul>
+<p>The firearms and weapons below join the <a href="../../rules/armor-weapons-and-kits.html#weapons">weapon table</a>, and duskwarding armor the <a href="../../rules/armor-weapons-and-kits.html#armor">armor table</a>, while Duskworld is selected.</p>
+<ul><li><strong>Lock pistol:</strong> the most common gun in Mendris, also called a revolver. It fires as fast as its rotating charged wheel can be locked after each shot.</li><li><strong>Marason:</strong> a heavy pistol that blurs the line between a piercing shot and an explosion.</li><li><strong>Lock rifle:</strong> the SR30 is the staple rifle of the IEE's constables, protecting justice from a good distance.</li><li><strong>Vartan II:</strong> the staple rifle of SPEAR agents, made to resist the Dusk and blast it back.</li><li><strong>Switchaxe</strong> and <strong>chainwhip:</strong> SPEAR weapons, carried by the Dawntouched.</li><li><strong>Duskwarding armor:</strong> every SPEAR agent wears a duskwarding vest; full suits are kept for the most dangerous assignments.</li></ul>
+<p class="moved">Duskworld weapons → <a href="../../rules/armor-weapons-and-kits.html#duskworld-weapons">Core Rules › Weapons</a></p>
+<p class="moved">Duskwarding armor → <a href="../../rules/armor-weapons-and-kits.html#duskwarding-armor">Core Rules › Armor</a></p></section>
+<section class="sec"><h2 id="dawnlight-and-dimlight">Dawnlight and Dimlight</h2>
+<p>Only the Allmother's light holds back the Dusk (see <a href="../../rules/damage-and-health.html#exposure">The Dusk</a>).</p>
+<ul><li><strong>Dawnlight</strong> is created and given by the Allmother. House Callarain is gifted it through its faith and shares it with Mendris through the Beacons. It's the most powerful shield against the Dusk: it never fails.</li><li><strong>Dimlight</strong> is artificial Dawnlight, made with runetech. It does the same work to a lesser degree, and less reliably, but it's far easier to come by.</li></ul>
+<div class="table-wrap"><table><thead><tr><th>Lamp</th><th>Function</th></tr></thead><tbody><tr><td><strong>Dawnlamp</strong></td><td>Carries Dawnlight. It burns one dose an hour, and within 6 meters the exposure level is None. It needs no glint. Doses come from House Callarain: SPEAR issues them for assignments, and anyone else needs a favor with the House or the black market.</td></tr></tbody></table></div>
+<p>The <strong>dimlamp</strong>, which carries Dimlight, is a glint-powered Device: see <a href="../../crafting.html#duskworld-devices">Duskworld Devices</a>.</p></section>
+    <nav class="prevnext" aria-label="Previous and next">
+      <a class="prev" href="overview.html"><span>Previous</span>← Overview</a>
+      <a class="next" href="stories/the-dimming.html"><span>Next</span>The Dimming →</a>
+    </nav>
+    <a class="to-top" href="#">Back to top ↑</a>
+  </main>
+</div>
+<footer class="foot"><div class="wrap">
+  <span><a href="../../../index.html">← Atwaira</a> · <b>Darktale</b> · A setting-agnostic d6 tabletop RPG</span>
+  <span><a href="../../rules/index.html">Rules</a> · <a href="../../vocations/index.html">Vocations</a> · <a href="../../talents/all.html">Talent index</a> · <a href="index.html">Duskworld</a></span>
+</div></footer>
+
+<div class="overlay" id="menu" hidden>
+  <div class="ov-head"><span class="brand">Darktale</span><button type="button" class="icon-btn" data-close aria-label="Close menu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button></div>
+  <form class="ov-search" action="../../search.html" role="search"><label class="sr" for="mq">Search</label><input id="mq" name="q" type="search" placeholder="Search rules, talents, conditions…"><button>Search</button></form>
+  <nav class="m-nav" aria-label="Site"><details class="m-group"><summary class="m-row">Rules</summary>
+        <div class="m-kids"><a href="../../rules/rolls-and-results.html">I. Rolls and results</a><a href="../../rules/skills-and-specialties.html">II. Skills and specialties</a><a href="../../rules/stress-and-madness.html">III. Stress and madness</a><a href="../../rules/turns-and-actions.html">IV. Turns and actions</a><a href="../../rules/attacks.html">V. Attacks</a><a href="../../rules/defense-and-reactions.html">VI. Defense and reactions</a><a href="../../rules/armor-weapons-and-kits.html">VII. Armor, weapons and kits</a><a href="../../rules/npcs-and-companions.html">VIII. NPCs and companions</a><a href="../../rules/damage-and-health.html">IX. Damage and Health</a><a href="../../rules/rest.html">X. Rest</a><a href="../../rules/conditions.html">XI. Conditions</a></div></details><a class="m-row" href="../../character-creation.html">Character Creation</a><details class="m-group"><summary class="m-row">Vocations</summary>
+        <div class="m-kids"><a href="../../vocations/agent.html">Agent</a><a href="../../vocations/envoy.html">Envoy</a><a href="../../vocations/hunter.html">Hunter</a><a href="../../vocations/leader.html">Leader</a><a href="../../vocations/scholar.html">Scholar</a><a href="../../vocations/warrior.html">Warrior</a><a href="../../vocations/dreamshaper.html" data-setting-only="duskworld">Dreamshaper</a></div></details><details class="m-group"><summary class="m-row">Talents</summary>
+        <div class="m-kids"><a href="../../talents/index.html">Reading talents</a><a href="../../talents/all.html">Talent index</a></div></details><a class="m-row" href="../../conditions.html">Conditions</a><details class="m-group"><summary class="m-row">Equipment</summary>
+        <div class="m-kids"><a href="../../equipment.html">Equipment</a><a href="../../crafting.html">Crafting</a></div></details><a class="m-row" href="../../advancement.html">Advancement</a><a class="m-row" href="../../downtime.html">Downtime</a><details class="m-group" data-setting-only="duskworld" open><summary class="m-row current">Duskworld</summary>
+        <div class="m-kids"><a href="index.html">Primer</a><a href="overview.html">Overview</a><a href="runetech.html" aria-current="page">Runetech</a><a href="stories/the-dimming.html">The Dimming</a><a href="index.html#rules">Duskworld rules</a></div></details><div class="m-switch" role="group" aria-label="Setting"><span class="eyebrow">Setting</span>
+      <div class="seg"><button type="button" data-set-setting="">Rules only</button><button type="button" data-set-setting="duskworld">Duskworld</button></div></div><a class="m-row" href="../../../index.html">← Atwaira</a></nav>
+</div>
+<div class="overlay" id="search" hidden>
+  <div class="ov-head search-head"><label class="sr" for="sq">Search</label><input id="sq" type="search" placeholder="Search rules, talents, conditions…" autocomplete="off" data-live-search><button type="button" class="cancel" data-close>Cancel</button></div>
+  <div class="ov-body"><div class="search-chips" data-search-chips></div><div class="search-results" data-search-results></div></div>
+</div>
+<a class="back-top" href="#" aria-label="Back to top" title="Back to top"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+<script src="../../assets/tome.js" defer></script>
+
+</body>
+</html>
