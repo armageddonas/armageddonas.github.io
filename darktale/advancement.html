@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-root="" data-page="advancement.html" data-setting="" data-default-setting="duskworld">
+<html lang="en" data-root="" data-page="advancement.html" data-setting="" data-default-setting="">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,7 +10,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/tome.css">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<script>document.documentElement.classList.add('js')</script>
+<script>(function (h) {
+  h.classList.add('js');
+  // Pages outside a setting take the palette of the selected setting, before first paint.
+  if (h.getAttribute('data-world')) return;
+  var v = null;
+  try { v = localStorage.getItem('darktale.setting'); } catch (e) {}
+  if (v === null) v = h.getAttribute('data-default-setting') || '';
+  if (v) h.setAttribute('data-world', v);
+})(document.documentElement)</script>
 </head>
 <body class="kind-doc">
 <a class="skip" href="#main">Skip to content</a>
@@ -26,7 +34,7 @@
     <button type="button" class="icon-btn" data-open="search" aria-label="Search"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" stroke-width="2"/><path d="M15.5 15.5L21 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
     <button type="button" class="icon-btn" data-open="menu" aria-label="Menu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
   </div>
-  <nav class="catbar" aria-label="Main"><div class="wrap cat-row"><a href="rules/index.html">Rules</a><a href="character-creation.html">Character Creation</a><a href="vocations/index.html">Vocations</a><a href="talents/index.html">Talents</a><a href="conditions.html">Conditions</a><a href="equipment.html">Equipment</a><a href="advancement.html" class="current" aria-current="true">Advancement</a><a href="downtime.html">Downtime</a><details class="setting-switch"><summary>Settings: <span data-setting-label>Duskworld</span> ▾</summary>
+  <nav class="catbar" aria-label="Main"><div class="wrap cat-row"><a href="rules/index.html">Rules</a><a href="character-creation.html">Character Creation</a><a href="vocations/index.html">Vocations</a><a href="talents/index.html">Talents</a><a href="conditions.html">Conditions</a><a href="equipment.html">Equipment</a><a href="advancement.html" class="current" aria-current="true">Advancement</a><a href="downtime.html">Downtime</a><details class="setting-switch"><summary>Settings: <span data-setting-label>Rules only</span> ▾</summary>
       <div class="setting-menu"><a href="index.html" data-set-setting="">Rules only</a><a href="settings/duskworld/index.html" data-set-setting="duskworld">Duskworld</a></div></details></div></nav>
 </header>
 <section class="hero"><div class="wrap">
@@ -39,22 +47,19 @@
       </div></div>
     </div></section>
 <div class="wrap layout">
-  <aside class="side"><div class="side-label">On this page</div><nav class="side-nav" aria-label="On this page"><a href="#milestones" data-spy="milestones">Milestones</a><a class="sub" href="#the-talent" data-spy="the-talent">The talent</a><a class="sub" href="#the-advancement-pool" data-spy="the-advancement-pool">The advancement pool</a><a class="sub" href="#limits" data-spy="limits">Limits</a></nav><div class="setting-box" data-setting-only="duskworld"><div class="side-label">In Duskworld</div><nav class="side-nav"><a href="settings/duskworld/index.html">Primer</a><a href="settings/duskworld/overview.html">Overview</a><a href="settings/duskworld/races.html">Races</a><a href="settings/duskworld/communities.html">Communities</a><a href="settings/duskworld/the-dusk.html">The Dusk</a><a href="settings/duskworld/stories/the-dimming.html">The Dimming</a></nav></div></aside>
+  <aside class="side"><div class="side-label">On this page</div><nav class="side-nav" aria-label="On this page"><a href="#milestones" data-spy="milestones">Milestones</a><a class="sub" href="#the-talent" data-spy="the-talent">The talent</a><a class="sub" href="#the-advancement-pool" data-spy="the-advancement-pool">The advancement pool</a><a class="sub" href="#limits" data-spy="limits">Limits</a></nav><div class="setting-box" data-setting-only="duskworld"><div class="side-label">In Duskworld</div><nav class="side-nav"><a href="settings/duskworld/index.html">Primer</a><a href="settings/duskworld/overview.html">Overview</a><a href="settings/duskworld/stories/the-dimming.html">The Dimming</a></nav></div></aside>
   <main id="main" class="content">
-    <div class="phone-nav"><div class="chips-label">On this page</div><nav class="jump-chips" aria-label="On this page"><a href="#milestones">Milestones</a></nav></div>
+    <div class="phone-nav"><div class="chips-label">On this page</div><nav class="jump-chips" aria-label="On this page"><a href="#milestones">Milestones</a><a class="sub" href="#the-talent">The talent</a><a class="sub" href="#the-advancement-pool">The advancement pool</a><a class="sub" href="#limits">Limits</a></nav></div>
     <section class="sec"><h2 id="milestones">Milestones</h2>
 <p>The GM calls a <strong>milestone</strong> when a story arc closes or at a major turning point, usually once per session in a short story and every one or two sessions in a longer one. Every character advances at the same time.</p>
 <p>At each milestone, every character:</p>
 <ol class="steps"><li><strong>Gains 1 talent.</strong></li><li><strong>Makes 2 choices</strong> from the advancement pool.</li></ol>
-<h3 id="the-talent">The talent</h3>
-<p>Each milestone gives one of:</p>
+<h3 id="the-talent">The talent</h3><p>Each milestone gives one of:</p>
 <ul><li>a <strong>talent</strong> from any vocation you have (its <strong>after</strong> tag and other prerequisites must be met),</li><li>a <strong>new vocation's key talent</strong>, after which its trees are open to you,</li><li>a <strong>further community trait</strong> from any community you belong to (its prerequisites must be met), or</li><li>a <strong>new community's key trait</strong> (see <a href="character-creation.html#joining-another-community">Joining another community</a>). The GM and player should find an in-world reason for it.</li></ul>
-<h3 id="the-advancement-pool">The advancement pool</h3>
-<p>Each choice marks <strong>one box</strong> on an option.</p>
+<h3 id="the-advancement-pool">The advancement pool</h3><p>Each choice marks <strong>one box</strong> on an option.</p>
 <div class="table-wrap"><table><thead><tr><th>Option</th><th>Boxes</th><th>You gain</th></tr></thead><tbody><tr><td><strong>Skills</strong></td><td>☐ ☐ ☐ ☐</td><td>2 skill dots in different skills rated below 3, or 1 dot in a skill rated 3 or higher</td></tr><tr><td><strong>Specialties</strong></td><td>☐ ☐</td><td>1 specialty, or 1 improvement to a specialty you have</td></tr><tr><td><strong>Training</strong></td><td>☐ ☐</td><td>Another talent (as above)</td></tr><tr><td><strong>Toughness</strong></td><td>☐</td><td>+1 Health</td></tr><tr><td><strong>Nerve</strong></td><td>☐</td><td>+1 Stress box</td></tr><tr><td><strong>Attribute</strong></td><td>[☐ ☐ ☐] [☐ ☐ ☐]</td><td>+1 attribute dot</td></tr></tbody></table></div>
 <ul><li><strong>Single boxes</strong> (☐) give their benefit as soon as you mark them.</li><li><strong>Chained boxes</strong> ([☐ ☐ ☐]) give their benefit only when the <strong>last box of the chain</strong> is marked. You can spread a chain across milestones: for example, mark two attribute boxes at one milestone and the third at the next.</li><li><strong>Full options:</strong> once every box of an option is marked, you can't choose it again this cycle.</li><li><strong>New cycle:</strong> the pool has 16 boxes, but a cycle is only <strong>10 choices (5 milestones)</strong>. After your 10th choice, clear the pool and start again. You'll never fill everything in one cycle, so each cycle you decide what to focus on. An unfinished chain keeps its marked boxes into the next cycle.</li></ul>
-<h3 id="limits">Limits</h3>
-<ul class="terms"><li><strong>Skills:</strong> the creation cap of 3 no longer applies; skills can reach 5.</li><li><strong>Specialties:</strong> each improvement adds +1d, up to +3d and no higher than the skill's permanent dots (see <a href="rules/skills-and-specialties.html#specialties">Specialties</a>).</li><li><strong>Attributes:</strong> no attribute can go above 5.</li></ul>
+<h3 id="limits">Limits</h3><ul class="terms"><li><strong>Skills:</strong> the creation cap of 3 no longer applies; skills can reach 5.</li><li><strong>Specialties:</strong> each improvement adds +1d, up to +3d and no higher than the skill's permanent dots (see <a href="rules/skills-and-specialties.html#specialties">Specialties</a>).</li><li><strong>Attributes:</strong> no attribute can go above 5.</li></ul>
 <p>Tiers stay informative only. For example, each 5-milestone cycle could mark a new tier.</p></section>
     <nav class="prevnext" aria-label="Previous and next">
       <a class="prev" href="crafting.html"><span>Previous</span>← Crafting</a>
@@ -76,7 +81,7 @@
         <div class="m-kids"><a href="vocations/agent.html">Agent</a><a href="vocations/envoy.html">Envoy</a><a href="vocations/hunter.html">Hunter</a><a href="vocations/leader.html">Leader</a><a href="vocations/scholar.html">Scholar</a><a href="vocations/warrior.html">Warrior</a></div></details><details class="m-group"><summary class="m-row">Talents</summary>
         <div class="m-kids"><a href="talents/index.html">Reading talents</a><a href="talents/all.html">Talent index</a></div></details><a class="m-row" href="conditions.html">Conditions</a><details class="m-group"><summary class="m-row">Equipment</summary>
         <div class="m-kids"><a href="equipment.html">Equipment</a><a href="crafting.html">Crafting</a></div></details><a class="m-row current" href="advancement.html">Advancement</a><a class="m-row" href="downtime.html">Downtime</a><details class="m-group" data-setting-only="duskworld"><summary class="m-row">Duskworld</summary>
-        <div class="m-kids"><a href="settings/duskworld/index.html">Primer</a><a href="settings/duskworld/overview.html">Overview</a><a href="settings/duskworld/races.html">Races</a><a href="settings/duskworld/communities.html">Communities</a><a href="settings/duskworld/the-dusk.html">The Dusk</a><a href="settings/duskworld/stories/the-dimming.html">The Dimming</a></div></details><div class="m-switch" role="group" aria-label="Setting"><span class="eyebrow">Setting</span>
+        <div class="m-kids"><a href="settings/duskworld/index.html">Primer</a><a href="settings/duskworld/overview.html">Overview</a><a href="settings/duskworld/stories/the-dimming.html">The Dimming</a><a href="settings/duskworld/index.html#rules">Duskworld rules</a></div></details><div class="m-switch" role="group" aria-label="Setting"><span class="eyebrow">Setting</span>
       <div class="seg"><button type="button" data-set-setting="">Rules only</button><button type="button" data-set-setting="duskworld">Duskworld</button></div></div><a class="m-row" href="../index.html">← Atwaira</a></nav>
 </div>
 <div class="overlay" id="search" hidden>

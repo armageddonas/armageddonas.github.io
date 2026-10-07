@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-root="../../../" data-page="settings/duskworld/stories/the-dimming.html" data-setting="duskworld" data-world="duskworld" data-default-setting="duskworld">
+<html lang="en" data-root="../../../" data-page="settings/duskworld/stories/the-dimming.html" data-setting="duskworld" data-world="duskworld" data-default-setting="">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,7 +10,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../../assets/tome.css">
 <link rel="icon" href="../../../assets/favicon.svg" type="image/svg+xml">
-<script>document.documentElement.classList.add('js')</script>
+<script>(function (h) {
+  h.classList.add('js');
+  // Pages outside a setting take the palette of the selected setting, before first paint.
+  if (h.getAttribute('data-world')) return;
+  var v = null;
+  try { v = localStorage.getItem('darktale.setting'); } catch (e) {}
+  if (v === null) v = h.getAttribute('data-default-setting') || '';
+  if (v) h.setAttribute('data-world', v);
+})(document.documentElement)</script>
 </head>
 <body class="kind-doc">
 <a class="skip" href="#main">Skip to content</a>
@@ -39,7 +47,7 @@
       </div></div>
     </div></section>
 <div class="wrap layout">
-  <aside class="side"><div class="side-label">Duskworld</div><nav class="side-nav" aria-label="Duskworld"><a href="../index.html">Primer</a><a href="../overview.html">Overview</a><a href="../races.html">Races</a><a href="../communities.html">Communities</a><a href="../the-dusk.html">The Dusk</a><a href="the-dimming.html" aria-current="page">The Dimming</a><a class="sub" href="#premise" data-spy="premise">Premise</a><a class="sub" href="#structure" data-spy="structure">Structure</a><a class="sub" href="#open-questions" data-spy="open-questions">Open questions</a></nav></aside>
+  <aside class="side"><div class="side-label">Duskworld</div><nav class="side-nav" aria-label="Duskworld"><a href="../index.html">Primer</a><a href="../overview.html">Overview</a><a href="the-dimming.html" aria-current="page">The Dimming</a><a class="sub" href="#premise" data-spy="premise">Premise</a><a class="sub" href="#structure" data-spy="structure">Structure</a><a class="sub" href="#open-questions" data-spy="open-questions">Open questions</a><a href="../index.html#rules">Duskworld rules</a></nav></aside>
   <main id="main" class="content">
     <div class="phone-nav"><div class="chips-label">On this page</div><nav class="jump-chips" aria-label="On this page"><a href="#premise">Premise</a><a href="#structure">Structure</a><a href="#open-questions">Open questions</a></nav></div>
     <section class="sec"><h2 id="premise">Premise</h2>
@@ -47,9 +55,9 @@
 <section class="sec"><h2 id="structure">Structure</h2>
 <div class="table-wrap"><table><thead><tr><th>Part</th><th>Sessions</th><th>Content</th></tr></thead><tbody><tr><td><strong>Part one: Fight night</strong></td><td>1–2</td><td>The heist at the Gutterlord's estate during the boxing night: get in, find the device, get out.</td></tr><tr><td><strong>Part two: Into the grey</strong></td><td>1–2</td><td>Carry the device through the Fork to the failing Beacon and repair it, while the Dusk looms over them.</td></tr></tbody></table></div></section>
 <section class="sec"><h2 id="open-questions">Open questions</h2>
-<ul class="terms"><li><strong>Who hires the party.</strong> The primer leaves it vague on purpose.</li><li><strong>Why the Gutterlord stole the device.</strong></li><li><strong>The repair device's rules:</strong> whether it's a <a href="../../../crafting.html#devices">Device</a> (Duskworld core components are still undecided) or a story item, and how the repair is rolled (likely an <a href="../../../rules/rolls-and-results.html#extended-actions">extended action</a> with Technology or Crafts).</li><li><strong>Dusk exposure in the Fork:</strong> how the <a href="../the-dusk.html#exposure">exposure level</a> rises as the Beacon fails (for example, Faint after curfew rising toward Heavy).</li><li><strong>Shanat powers:</strong> not written yet; a shanat character currently only has Night Sight.</li></ul></section>
+<ul class="terms"><li><strong>Who hires the party.</strong> The primer leaves it vague on purpose.</li><li><strong>Why the Gutterlord stole the device.</strong></li><li><strong>The repair device's rules:</strong> whether it's a <a href="../../../crafting.html#devices">Device</a> (Duskworld core components are still undecided) or a story item, and how the repair is rolled (likely an <a href="../../../rules/rolls-and-results.html#extended-actions">extended action</a> with Technology or Crafts).</li><li><strong>Dusk exposure in the Fork:</strong> how the <a href="../../../rules/damage-and-health.html#exposure">exposure level</a> rises as the Beacon fails (for example, Faint after curfew rising toward Heavy).</li><li><strong>Shanat powers:</strong> not written yet; a shanat character currently only has Night Sight.</li></ul></section>
     <nav class="prevnext" aria-label="Previous and next">
-      <a class="prev" href="../the-dusk.html"><span>Previous</span>← The Dusk</a>
+      <a class="prev" href="../overview.html"><span>Previous</span>← Overview</a>
       <span></span>
     </nav>
     <a class="to-top" href="#">Back to top ↑</a>
@@ -68,7 +76,7 @@
         <div class="m-kids"><a href="../../../vocations/agent.html">Agent</a><a href="../../../vocations/envoy.html">Envoy</a><a href="../../../vocations/hunter.html">Hunter</a><a href="../../../vocations/leader.html">Leader</a><a href="../../../vocations/scholar.html">Scholar</a><a href="../../../vocations/warrior.html">Warrior</a></div></details><details class="m-group"><summary class="m-row">Talents</summary>
         <div class="m-kids"><a href="../../../talents/index.html">Reading talents</a><a href="../../../talents/all.html">Talent index</a></div></details><a class="m-row" href="../../../conditions.html">Conditions</a><details class="m-group"><summary class="m-row">Equipment</summary>
         <div class="m-kids"><a href="../../../equipment.html">Equipment</a><a href="../../../crafting.html">Crafting</a></div></details><a class="m-row" href="../../../advancement.html">Advancement</a><a class="m-row" href="../../../downtime.html">Downtime</a><details class="m-group" data-setting-only="duskworld" open><summary class="m-row current">Duskworld</summary>
-        <div class="m-kids"><a href="../index.html">Primer</a><a href="../overview.html">Overview</a><a href="../races.html">Races</a><a href="../communities.html">Communities</a><a href="../the-dusk.html">The Dusk</a><a href="the-dimming.html" aria-current="page">The Dimming</a></div></details><div class="m-switch" role="group" aria-label="Setting"><span class="eyebrow">Setting</span>
+        <div class="m-kids"><a href="../index.html">Primer</a><a href="../overview.html">Overview</a><a href="the-dimming.html" aria-current="page">The Dimming</a><a href="../index.html#rules">Duskworld rules</a></div></details><div class="m-switch" role="group" aria-label="Setting"><span class="eyebrow">Setting</span>
       <div class="seg"><button type="button" data-set-setting="">Rules only</button><button type="button" data-set-setting="duskworld">Duskworld</button></div></div><a class="m-row" href="../../../../index.html">← Atwaira</a></nav>
 </div>
 <div class="overlay" id="search" hidden>

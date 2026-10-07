@@ -20,6 +20,7 @@
   <div class="wrap top-row">
     <a class="brand" href="index.html">Atwaira</a>
     <nav class="top-nav" aria-label="Main">
+      <a href="#site-q">Search</a>
       <a href="#systems">Systems</a>
       <a href="#worlds">Worlds</a>
     </nav>
@@ -32,10 +33,20 @@
     <div class="eyebrow">Worlds · Systems · Stories</div>
     <h1>Atwaira</h1>
     <p class="hero-intro">Tabletop roleplaying systems, the worlds built on them, and the stories told there.</p>
+    <form class="site-search" role="search" action="index.html">
+      <label class="sr" for="site-q">Search every system and world</label>
+      <input id="site-q" name="q" type="search" placeholder="Search rules, talents, conditions, lore…" autocomplete="off" data-site-search>
+      <button type="submit">Search</button>
+    </form>
   </div>
 </section>
 
 <main id="main" class="wrap">
+
+  <section class="s-panel" aria-live="polite" data-site-results hidden>
+    <div class="s-chips" data-chips></div>
+    <div class="s-list" data-list></div>
+  </section>
 
   <!--
     To add a section: copy one <a class="feature"> block into the right grid.
@@ -48,7 +59,7 @@
       <p>Rules engines, setting-agnostic at the core.</p>
     </div>
     <div class="grid">
-      <article class="feature system">
+      <article class="feature system theme-darktale">
         <div class="f-top"><span class="eyebrow">d6 system</span><span class="tag">Rules wiki</span></div>
         <h3><a class="stretch" href="darktale/index.html">Darktale</a></h3>
         <p class="f-text">A d6 engine where Attribute + Skill dice succeed on 5–6, Stress fuels every push, and characters grow through vocations, talent trees and the communities they come from.</p>
@@ -80,9 +91,7 @@
         <nav class="f-links" aria-label="Duskworld">
           <a href="darktale/settings/duskworld/index.html">Primer</a>
           <a href="darktale/settings/duskworld/overview.html">Overview</a>
-          <a href="darktale/settings/duskworld/races.html">Races</a>
-          <a href="darktale/settings/duskworld/communities.html">Communities</a>
-          <a href="darktale/settings/duskworld/the-dusk.html">The Dusk</a>
+          <a href="darktale/settings/duskworld/index.html#rules">Duskworld rules</a>
         </nav>
       </article>
     </div>
@@ -96,5 +105,6 @@
     <span><a href="darktale/index.html">Darktale</a> · <a href="darktale/settings/duskworld/index.html">Duskworld</a></span>
   </div>
 </footer>
+<script src="assets/search.js" defer></script>
 </body>
 </html>

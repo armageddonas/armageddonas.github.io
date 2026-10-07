@@ -28,6 +28,10 @@
       var on = el.getAttribute('data-set-setting') === cur;
       el.setAttribute(el.tagName === 'BUTTON' ? 'aria-pressed' : 'aria-checked', on ? 'true' : 'false');
     });
+    // Pages outside a setting follow the selected setting's palette (setting pages keep their own).
+    if (!pageSetting) {
+      if (cur) html.setAttribute('data-world', cur); else html.removeAttribute('data-world');
+    }
     var label = $('[data-setting-label]');
     if (label) {
       var item = $('.setting-menu [data-set-setting="' + cur + '"]');
@@ -37,6 +41,9 @@
   var pageSetting = html.getAttribute('data-setting');
   if (pageSetting) { try { localStorage.setItem(KEY, pageSetting); } catch (e) {} }
   applySetting();
+  // A page restored from the back/forward cache, or a change made in another tab, may be out of date.
+  window.addEventListener('pageshow', function (e) { if (e.persisted) applySetting(); });
+  window.addEventListener('storage', function (e) { if (e.key === KEY) applySetting(); });
   document.addEventListener('click', function (e) {
     var t = e.target.closest('[data-set-setting]');
     if (!t) return;
@@ -234,6 +241,10 @@
     if (!id) return;
     if (showTab(id)) return;
     var el = document.getElementById(id);
+    // A link straight to another setting's content (or to setting content while "Rules only" is selected)
+    // reveals just that piece rather than leading to an empty spot.
+    var hidden = el && el.closest('[data-setting-only]:not(.show)');
+    if (hidden) { hidden.classList.add('show'); el.scrollIntoView(); }
     var panel = el && el.closest('.tree-panel');
     if (panel && panel.hasAttribute('data-hidden')) {
       showTab(panel.id);

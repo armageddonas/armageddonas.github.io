@@ -1,0 +1,13 @@
+{
+  "name": "atwaira",
+  "private": true,
+  "type": "module",
+  "description": "The Atwaira site. `npm run build` rebuilds every generated section from its own sources.",
+  "scripts": {
+    "build": "node tools/build.mjs",
+    "serve": "node tools/serve.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

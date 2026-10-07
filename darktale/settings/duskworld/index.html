@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-root="../../" data-page="settings/duskworld/index.html" data-setting="duskworld" data-world="duskworld" data-default-setting="duskworld">
+<html lang="en" data-root="../../" data-page="settings/duskworld/index.html" data-setting="duskworld" data-world="duskworld" data-default-setting="">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,7 +10,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&amp;display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../../assets/tome.css">
 <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
-<script>document.documentElement.classList.add('js')</script>
+<script>(function (h) {
+  h.classList.add('js');
+  // Pages outside a setting take the palette of the selected setting, before first paint.
+  if (h.getAttribute('data-world')) return;
+  var v = null;
+  try { v = localStorage.getItem('darktale.setting'); } catch (e) {}
+  if (v === null) v = h.getAttribute('data-default-setting') || '';
+  if (v) h.setAttribute('data-world', v);
+})(document.documentElement)</script>
 </head>
 <body class="kind-setting-landing">
 <a class="skip" href="#main">Skip to content</a>
@@ -39,7 +47,7 @@
       </div></div>
     </div></section>
 <div class="wrap layout">
-  <aside class="side"><div class="side-label">Duskworld</div><nav class="side-nav" aria-label="Duskworld"><a href="index.html" aria-current="page">Primer</a><a href="overview.html">Overview</a><a href="races.html">Races</a><a href="communities.html">Communities</a><a href="the-dusk.html">The Dusk</a><a href="stories/the-dimming.html">The Dimming</a></nav></aside>
+  <aside class="side"><div class="side-label">Duskworld</div><nav class="side-nav" aria-label="Duskworld"><a href="index.html" aria-current="page">Primer</a><a href="overview.html">Overview</a><a href="stories/the-dimming.html">The Dimming</a><a href="index.html#rules">Duskworld rules</a></nav></aside>
   <main id="main" class="content">
     
     <div class="primer">
@@ -80,7 +88,7 @@
         <li><strong>The curfew bell.</strong> Every settlement rings it at dusk. People who go out after it often don't come back. Whether that's the Dusk reaching past the Beacons or something else, nobody says out loud.</li>
         <li><strong>Papers, please.</strong> Your travel papers say where you're allowed to be, and checkpoints guard Beacon gates, Sector lines and train stations. Without the right papers you're turned back, or detained. Bribes, forgeries and friends in the right places all help. Only the Gentry, the Houses and the security forces may carry firearms.</li>
         <li><strong>The curse test.</strong> Too long in the Dusk leaves a mark, and Mendris can test for it. Fail, or just fall under suspicion, and you may be sent somewhere like Brightgate, an old mansion turned asylum where people are kept for years. When someone with the curse dies without a mark on them, everyone says the Dusk took them.</li>
-        <li><strong>Boxings.</strong> Money is cut from glints, kren-made cubes of power that nobody knows how to make anymore. Most people only ever handle a handful of boxings; merchants deal in slabs, and the Houses in whole shells.</li>
+        <li><strong>Boxings.</strong> Money is cut from glints, kren-made cubes of power that nobody can truly make anymore; the workshops of Mendris only manage weaker copies. Most people only ever handle a handful of boxings; merchants deal in slabs, and the Houses in whole shells.</li>
       </ul>
     </section>
 
@@ -187,7 +195,9 @@
     <p>Her light is our home. Her light protects.</p>
   </footer>
 
-</div><section class="sec"><h2 id="pages">Duskworld pages</h2><div class="link-grid"><a class="link-card" href="overview.html"><span class="eyebrow">Duskworld</span><b>Duskworld: Eladria</b><span>The world of Eladria, slowly being consumed by the Dusk. Races are on the Races page; the Dusk's rules are on The Dusk. The player-facing introduction is the primer.</span></a><a class="link-card" href="races.html"><span class="eyebrow">Duskworld</span><b>Duskworld Races</b><span>Races of Eladria. They use the race and heritage rules from Character Creation: take your race's primary trait and your heritage's secondary trait. Humans use the core rules. For the world itself, see the Overview.</span></a><a class="link-card" href="communities.html"><span class="eyebrow">Duskworld</span><b>Duskworld Communities</b><span>Communities of Mendris. They use the community rules from Character Creation: at character creation you choose the community you grew up in, gain its key trait, and put 1 skill dot in one of its skills. Each community also lists its starting gear. Its further traits can be taken with the free pick at creation or later through advancement, and characters can join other communities later. Tags are read as in Talents.</span></a><a class="link-card" href="the-dusk.html"><span class="eyebrow">Duskworld</span><b>The Dusk</b><span>Rules for the Dusk's corruption: exposure, Dusking, and what happens to those it claims. For what the Dusk is, see the Overview.</span></a><a class="link-card" href="stories/the-dimming.html"><span class="eyebrow">Story · GM-facing</span><b>The Dimming</b><span>A short story for Duskworld, planned for 4 sessions. GM-facing. The player-facing pitch is in the primer.</span></a></div></section>
+</div><section class="sec"><h2 id="rules">Duskworld rules</h2>
+      <p>Duskworld's rules live inside the system pages, next to the rules they extend. They show there while Duskworld is the selected setting.</p>
+      <div class="rules-index"><div class="ri-group"><h3>Character Creation</h3><ul><li><a href="../../character-creation.html#glints-and-boxings">Glints and boxings</a> <span class="muted">· Wealth</span></li><li><a href="../../character-creation.html#duskworld-human">Human</a> <span class="muted">· Human</span></li><li><a href="../../character-creation.html#kehar">Kehar</a> <span class="muted">· Human</span></li><li><a href="../../character-creation.html#shanat">Shanat</a> <span class="muted">· Human</span></li><li><a href="../../character-creation.html#frontier-folk">Frontier Folk</a> <span class="muted">· 2. Community</span></li><li><a href="../../character-creation.html#gentry">Gentry</a> <span class="muted">· 2. Community</span></li><li><a href="../../character-creation.html#guildfolk">Guildfolk</a> <span class="muted">· 2. Community</span></li><li><a href="../../character-creation.html#dusklanders">Dusklanders</a> <span class="muted">· 2. Community</span></li><li><a href="../../character-creation.html#the-wards">The Wards</a> <span class="muted">· 2. Community</span></li><li><a href="../../character-creation.html#caravaners">Caravaners</a> <span class="muted">· 2. Community</span></li></ul></div><div class="ri-group"><h3>Damage and Health</h3><ul><li><a href="../../rules/damage-and-health.html#exposure">Exposure</a> <span class="muted">· Hazards</span></li><li><a href="../../rules/damage-and-health.html#dusking">Dusking</a> <span class="muted">· Scars</span></li></ul></div><div class="ri-group"><h3>Stress and madness</h3><ul><li><a href="../../rules/stress-and-madness.html#taken-by-the-dusk">Taken by the Dusk</a> <span class="muted">· Tenacity and madness</span></li></ul></div><div class="ri-group"><h3>Crafting</h3><ul><li><a href="../../crafting.html#glints">Glints</a> <span class="muted">· Devices</span></li><li><a href="../../crafting.html#buying-and-trading">Buying and trading</a> <span class="muted">· Devices</span></li><li><a href="../../crafting.html#duskworld-devices">Duskworld Devices</a> <span class="muted">· Common Devices</span></li></ul></div></div></section><section class="sec"><h2 id="pages">Duskworld pages</h2><div class="link-grid"><a class="link-card" href="overview.html"><span class="eyebrow">Duskworld</span><b>Duskworld: Eladria</b><span>The world of Eladria, slowly being consumed by the Dusk. Races are on the Races page; the Dusk's rules are on The Dusk. The player-facing introduction is the primer.</span></a><a class="link-card" href="stories/the-dimming.html"><span class="eyebrow">Story · GM-facing</span><b>The Dimming</b><span>A short story for Duskworld, planned for 4 sessions. GM-facing. The player-facing pitch is in the primer.</span></a></div></section>
     <nav class="prevnext" aria-label="Previous and next">
       <span></span>
       <a class="next" href="overview.html"><span>Next</span>Overview →</a>
@@ -208,7 +218,7 @@
         <div class="m-kids"><a href="../../vocations/agent.html">Agent</a><a href="../../vocations/envoy.html">Envoy</a><a href="../../vocations/hunter.html">Hunter</a><a href="../../vocations/leader.html">Leader</a><a href="../../vocations/scholar.html">Scholar</a><a href="../../vocations/warrior.html">Warrior</a></div></details><details class="m-group"><summary class="m-row">Talents</summary>
         <div class="m-kids"><a href="../../talents/index.html">Reading talents</a><a href="../../talents/all.html">Talent index</a></div></details><a class="m-row" href="../../conditions.html">Conditions</a><details class="m-group"><summary class="m-row">Equipment</summary>
         <div class="m-kids"><a href="../../equipment.html">Equipment</a><a href="../../crafting.html">Crafting</a></div></details><a class="m-row" href="../../advancement.html">Advancement</a><a class="m-row" href="../../downtime.html">Downtime</a><details class="m-group" data-setting-only="duskworld" open><summary class="m-row current">Duskworld</summary>
-        <div class="m-kids"><a href="index.html" aria-current="page">Primer</a><a href="overview.html">Overview</a><a href="races.html">Races</a><a href="communities.html">Communities</a><a href="the-dusk.html">The Dusk</a><a href="stories/the-dimming.html">The Dimming</a></div></details><div class="m-switch" role="group" aria-label="Setting"><span class="eyebrow">Setting</span>
+        <div class="m-kids"><a href="index.html" aria-current="page">Primer</a><a href="overview.html">Overview</a><a href="stories/the-dimming.html">The Dimming</a><a href="index.html#rules">Duskworld rules</a></div></details><div class="m-switch" role="group" aria-label="Setting"><span class="eyebrow">Setting</span>
       <div class="seg"><button type="button" data-set-setting="">Rules only</button><button type="button" data-set-setting="duskworld">Duskworld</button></div></div><a class="m-row" href="../../../index.html">← Atwaira</a></nav>
 </div>
 <div class="overlay" id="search" hidden>
