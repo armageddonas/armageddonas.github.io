@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Character Generator</title>
+    <meta property="og:title" content="Herb Generator" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta property="twitter:card" content="summary_large_image" />
+
+    <link rel="stylesheet" href="../../components/bannerMenu/bannerMenu.css" />
+    <script type="text/javascript" src="../../components/bannerMenu/bannerMenu.js"></script>
+
+
+    <script type="text/javascript" src="scripts/herbGen.js"></script>
+    <script type="text/javascript" src="scripts/genSetup.js"></script>
+
+    <!--Data-->
+    <script type="text/javascript" src="data/characterNames.js"></script>
+    <script type="text/javascript" src="data/characterLineages.js"></script>
+    <script type="text/javascript" src="data/herbTypes.js"></script>
+    <script type="text/javascript" src="data/characterProfessions.js"></script>
+</head>
+<body>
+<link rel="stylesheet" href="./style.css" />
+<div>
+    <link href="./index.css" rel="stylesheet" />
+    <div id="bannerMenu"></div>
+    <div class="website-container">
+        <div class="website-character-gen">
+            <div class="website-column-1">
+                <div class="website-char-data-container">
+                    <h1 class="website-heading">
+                        <span>Herb Generator</span>
+                        <br />
+                    </h1>
+                    <div class="data-input-container data-input-root-class-name">
+                        <div class="data-input-container1">
+                            <span class="data-input-text" onclick="generateType()"><span>Type</span></span>
+                            <input type="text" id="herbTypeInput"
+                                   placeholder="Random" list="typesList"
+                                   class="data-input-textinput input" />
+                            <datalist id="typesList"></datalist>
+                            <div class="data-input-container2">
+                                    <span>
+                                        <span>Lock</span>
+                                        <br />
+                                    </span>
+                                <input type="checkbox" id="typeLock" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="data-input-container data-input-root-class-name">
+                        <div class="data-input-container1">
+                            <span class="data-input-text" onclick="generateCulture()"><span>Culture</span></span>
+                            <input type="text" id="characterCultureInput"
+                                   placeholder="Random" list="culturesList"
+                                   class="data-input-textinput input" />
+                            <datalist id="culturesList"></datalist>
+                            <div class="data-input-container2">
+                                    <span>
+                                        <span>Lock</span>
+                                        <br />
+                                    </span>
+                                <input type="checkbox" id="cultureLock" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="data-input-container data-input-root-class-name">
+                        <div class="data-input-container1">
+                            <span class="data-input-text" onclick="generateName()"><span>Name</span></span>
+                            <input type="text" id="characterNameInput"
+                                   placeholder="Random"
+                                   class="data-input-textinput input" />
+                            <div class="data-input-container2">
+                                    <span>
+                                        <span>Lock</span>
+                                        <br />
+                                    </span>
+                                <input type="checkbox" id="nameLock" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="data-input-container data-input-root-class-name">
+                        <div class="data-input-container1">
+                            <span class="data-input-text" onclick="generateLineage()"><span>Lineage</span></span>
+                            <input type="text" id="characterLineageInput"
+                                   placeholder="Random" list="lineagesList"
+                                   class="data-input-textinput input" />
+                            <datalist id="lineagesList"></datalist>
+                            <div class="data-input-container2">
+                                    <span>
+                                        <span>Lock</span>
+                                        <br />
+                                    </span>
+                                <input type="checkbox" id="lineageLock" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="data-input-container data-input-root-class-name">
+                        <div class="data-input-container1">
+                            <span class="data-input-text" onclick="generateHeritage()"><span>Heritage</span></span>
+                            <input type="text" id="characterHeritageInput"
+                                   placeholder="Random" list="heritagesList"
+                                   class="data-input-textinput input" />
+                            <datalist id="heritagesList"></datalist>
+                            <div class="data-input-container2">
+                                    <span>
+                                        <span>Lock</span>
+                                        <br />
+                                    </span>
+                                <input type="checkbox" id="heritageLock" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="data-input-container data-input-root-class-name-end">
+                        <div class="data-input-container1">
+                            <span class="data-input-text" onclick="generateProfession()"><span>Profession</span></span>
+                            <input type="text" id="characterProfessionInput"
+                                   placeholder="Random"
+                                   class="data-input-textinput input" />
+                            <div class="data-input-container2">
+                                    <span>
+                                        <span>Lock</span>
+                                        <br />
+                                    </span>
+                                <input type="checkbox" id="professionLock" />
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="website-generate button" onclick="generateCharacter()">
+                            <span>
+                                <span>Generate All</span>
+                                <br />
+                            </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script data-section-id="navbar"
+        src="https://unpkg.com/@teleporthq/teleport-custom-scripts"></script>
+</body>
+</html>
