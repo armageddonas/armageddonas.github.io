@@ -623,3 +623,6 @@ body.locked .back-top { display: none; }
   body { background: #fff; color: #000; }
   .js .tree-panel[data-hidden] { display: block; }
 }
+
+/* GM-only pages, added locally from the publish overlay (assets/gm.js). */
+.side-nav .gm-link::after, .m-kids .gm-link::after { content: " · GM"; opacity: .6; font-size: .8em; }

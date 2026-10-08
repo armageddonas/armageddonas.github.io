@@ -328,6 +328,45 @@
   // ---------- Search ----------
 
   var index = null, loading = [];
+  // GM-only pages (a publish build's git-ignored overlay). Loaded only from a local copy, never from the
+  // public site, so a published page never even asks for assets/gm.js.
+  var LOCAL = location.protocol === 'file:' || /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname);
+  var gmState = null, gmWaiting = [];
+  function loadGm(cb) {
+    if (!LOCAL) return cb(null);
+    if (gmState) return cb(gmState.data);
+    gmWaiting.push(cb);
+    if (loadGm.started) return;
+    loadGm.started = true;
+    var done = function () { gmState = { data: window.DARKTALE_GM || null }; gmWaiting.forEach(function (f) { f(gmState.data); }); gmWaiting = []; };
+    var s = document.createElement('script');
+    s.src = ROOT + 'assets/gm.js';
+    s.onload = done; s.onerror = done;
+    document.head.appendChild(s);
+  }
+  loadGm(function (gm) {
+    if (!gm) return;
+    var here = html.getAttribute('data-page');
+    gm.links.forEach(function (l) {
+      $$('[data-gm-nav="' + l.setting + '"]').forEach(function (nav) {
+        var a = document.createElement('a');
+        a.href = ROOT + l.url;
+        a.className = 'gm-link';
+        a.textContent = l.navTitle || l.title;
+        if (l.url === here) a.setAttribute('aria-current', 'page');
+        var rules = $('a[href$="#rules"]', nav);
+        nav.insertBefore(a, rules && rules.parentNode === nav ? rules : null);
+      });
+      $$('[data-gm-cards="' + l.setting + '"]').forEach(function (grid) {
+        var a = document.createElement('a');
+        a.href = ROOT + l.url;
+        a.className = 'link-card gm-link';
+        a.innerHTML = '<span class="eyebrow">' + esc(l.label) + '</span><b>' + esc(l.title) + '</b><span>' + esc(l.intro) + '</span>';
+        grid.appendChild(a);
+      });
+    });
+  });
+
   function loadIndex(cb) {
     if (index) { if (cb) cb(index); return; }
     if (cb) loading.push(cb);
@@ -335,7 +374,13 @@
     loadIndex.started = true;
     var s = document.createElement('script');
     s.src = ROOT + 'assets/search-index.js';
-    s.onload = function () { index = window.DARKTALE_SEARCH; loading.forEach(function (f) { f(index); }); loading = []; };
+    s.onload = function () {
+      loadGm(function (gm) {
+        index = window.DARKTALE_SEARCH;
+        if (gm) index.entries = index.entries.concat(gm.entries);
+        loading.forEach(function (f) { f(index); }); loading = [];
+      });
+    };
     document.head.appendChild(s);
   }
 
