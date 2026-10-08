@@ -1,0 +1,4 @@
+# GM-only pages: built for local use, never committed or published.
+/assets/gm.js
+stories/
+gm/
