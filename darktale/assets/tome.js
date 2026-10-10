@@ -21,8 +21,10 @@
   }
   function applySetting() {
     var cur = getSetting();
+    // A setting's own pages always show their setting's content; elsewhere only the chosen setting's shows.
     $$('[data-setting-only]').forEach(function (el) {
-      el.classList.toggle('show', el.getAttribute('data-setting-only') === cur);
+      var key = el.getAttribute('data-setting-only');
+      el.classList.toggle('show', key === cur || (!!pageSetting && key === pageSetting));
     });
     // Core content a selected setting is incompatible with (the core pistol in Duskworld) is dimmed, not removed:
     // with several settings selected, another may still use it.
@@ -45,8 +47,8 @@
       label.textContent = item ? item.textContent : 'Rules only';
     }
   }
+  // Visiting a setting's page doesn't change the choice: only the Settings switch does.
   var pageSetting = html.getAttribute('data-setting');
-  if (pageSetting) { try { localStorage.setItem(KEY, pageSetting); } catch (e) {} }
   applySetting();
   // A page restored from the back/forward cache, or a change made in another tab, may be out of date.
   window.addEventListener('pageshow', function (e) { if (e.persisted) applySetting(); });
@@ -56,15 +58,10 @@
     if (!t) return;
     var v = t.getAttribute('data-set-setting');
     setSetting(v);
-    if (t.tagName === 'A') {
-      // Stay put when switching to rules only from a rules page.
-      if (!v && !pageSetting) { e.preventDefault(); var d = t.closest('details'); if (d) d.open = false; }
-    } else if (v && v !== pageSetting) {
-      var link = $('.setting-menu [data-set-setting="' + v + '"]');
-      if (link) location.href = link.href;
-    } else if (!v && pageSetting) {
-      location.href = ROOT + 'index.html';
-    }
+    // Switching settings stays on the current page (the menu links only lead somewhere without JavaScript).
+    if (t.tagName === 'A') e.preventDefault();
+    var d = t.closest('details');
+    if (d) d.open = false;
   });
   document.addEventListener('click', function (e) {
     $$('details.setting-switch[open]').forEach(function (d) { if (!d.contains(e.target)) d.open = false; });
