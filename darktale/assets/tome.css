@@ -418,7 +418,7 @@ html:not(.js) .tabs { display: none; }
 .ti-help { margin: 0; color: var(--muted-2); }
 /* Core content a selected setting is incompatible with */
 .world-badge[data-setting-only].show { display: inline-block; }
-tr.is-incompatible td { color: var(--muted-2); text-decoration: line-through; }
+tr.is-incompatible td { color: var(--muted); }
 .incompat.is-incompatible > :not(.incompat-note) { opacity: 0.55; }
 .incompat-note { margin: 0 0 6px; }
 .incompat-note:not(:has(.show)) { display: none; }
@@ -635,3 +635,19 @@ tr.table-group th {
   color: var(--accent); border-bottom: 1px solid var(--border-2); background: transparent;
 }
 tbody tr.table-group:first-child th { padding-top: 8px; }
+
+/* Setting marks in tables. Each setting has a mark colour (--mark) of its own, apart from its palette. */
+[data-mark] { --mark: var(--accent); }
+[data-mark="duskworld"] { --mark: #C9973F; }
+tr.world-row td:first-child { box-shadow: inset 3px 0 0 var(--mark); }
+.incompat-mark { margin-left: 6px; color: var(--mark); font-size: 0.85em; cursor: help; }
+.incompat-mark[data-setting-only].show { display: inline; }
+.table-legend { margin: -6px 0 18px; font-size: 13px; color: var(--muted-2); display: flex; flex-wrap: wrap; gap: 4px 16px; }
+.table-legend:not(:has(.show)) { display: none; }
+.legend-item[data-setting-only].show { display: inline-flex; align-items: center; gap: 4px; }
+.legend-item .incompat-mark { margin-left: 0; cursor: default; }
+.legend-edge { display: inline-block; width: 3px; height: 1em; background: var(--mark); }
+/* The settings menu picks several: each setting is a check. */
+.setting-menu a[data-set-setting]:not([data-set-setting=""])::before { content: '☐ '; color: var(--muted); }
+.setting-menu a[data-set-setting]:not([data-set-setting=""])[aria-checked="true"]::before { content: '☑ '; color: var(--accent); }
+.setting-menu a[data-set-setting]:not([data-set-setting=""])[aria-checked="true"]::after { content: none; }

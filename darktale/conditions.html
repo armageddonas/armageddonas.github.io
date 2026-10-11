@@ -17,7 +17,8 @@
   var v = null;
   try { v = localStorage.getItem('darktale.setting'); } catch (e) {}
   if (v === null) v = h.getAttribute('data-default-setting') || '';
-  if (v) h.setAttribute('data-world', v);
+  // Several settings selected: the neutral palette.
+  if (v && v.indexOf(' ') < 0) h.setAttribute('data-world', v);
 })(document.documentElement)</script>
 </head>
 <body class="kind-conditions">

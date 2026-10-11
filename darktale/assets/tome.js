@@ -9,42 +9,48 @@
 
   // ---------- Setting preference ----------
 
+  // The selected settings: several at once, stored space-separated ("" is rules only).
   var KEY = 'darktale.setting';
-  function getSetting() {
+  function getSettings() {
     var v = null;
     try { v = localStorage.getItem(KEY); } catch (e) {}
-    return v === null ? html.getAttribute('data-default-setting') || '' : v;
+    if (v === null) v = html.getAttribute('data-default-setting') || '';
+    return v.split(' ').filter(Boolean);
   }
-  function setSetting(v) {
-    try { localStorage.setItem(KEY, v); } catch (e) {}
+  function setSettings(list) {
+    try { localStorage.setItem(KEY, list.join(' ')); } catch (e) {}
     applySetting();
   }
   function applySetting() {
-    var cur = getSetting();
-    // A setting's own pages always show their setting's content; elsewhere only the chosen setting's shows.
+    var selected = getSettings();
+    var has = function (k) { return selected.indexOf(k) >= 0; };
+    // A setting's own pages always show their setting's content; elsewhere only the selected settings' shows.
     $$('[data-setting-only]').forEach(function (el) {
       var key = el.getAttribute('data-setting-only');
-      el.classList.toggle('show', key === cur || (!!pageSetting && key === pageSetting));
+      el.classList.toggle('show', has(key) || (!!pageSetting && key === pageSetting));
     });
-    // Core content a selected setting is incompatible with (the core pistol in Duskworld) is dimmed, not removed:
-    // with several settings selected, another may still use it.
-    var selected = cur ? cur.split(' ') : [];
+    // Core content a selected setting doesn't use (the core pistol in Duskworld) is marked, not removed, and only
+    // dimmed when no selected setting uses it: another selected setting may still allow it.
     $$('[data-incompatible]').forEach(function (el) {
       var off = el.getAttribute('data-incompatible').split(' ');
-      el.classList.toggle('is-incompatible', selected.some(function (k) { return off.indexOf(k) >= 0; }));
+      el.classList.toggle('is-incompatible', selected.length > 0 && selected.every(function (k) { return off.indexOf(k) >= 0; }));
     });
     $$('[data-set-setting]').forEach(function (el) {
-      var on = el.getAttribute('data-set-setting') === cur;
+      var k = el.getAttribute('data-set-setting');
+      var on = k ? has(k) : selected.length === 0;
       el.setAttribute(el.tagName === 'BUTTON' ? 'aria-pressed' : 'aria-checked', on ? 'true' : 'false');
     });
-    // Pages outside a setting follow the selected setting's palette (setting pages keep their own).
+    // Pages outside a setting take the palette of a single selected setting; with several, the neutral one.
     if (!pageSetting) {
-      if (cur) html.setAttribute('data-world', cur); else html.removeAttribute('data-world');
+      if (selected.length === 1) html.setAttribute('data-world', selected[0]); else html.removeAttribute('data-world');
     }
     var label = $('[data-setting-label]');
     if (label) {
-      var item = $('.setting-menu [data-set-setting="' + cur + '"]');
-      label.textContent = item ? item.textContent : 'Rules only';
+      var names = selected.map(function (k) {
+        var item = $('.setting-menu [data-set-setting="' + k + '"]');
+        return item ? item.textContent : k;
+      });
+      label.textContent = names.length ? names.join(', ') : 'Rules only';
     }
   }
   // Visiting a setting's page doesn't change the choice: only the Settings switch does.
@@ -56,12 +62,16 @@
   document.addEventListener('click', function (e) {
     var t = e.target.closest('[data-set-setting]');
     if (!t) return;
+    // Rules only clears every setting; a setting toggles on or off. The menu stays open to pick several.
     var v = t.getAttribute('data-set-setting');
-    setSetting(v);
+    var list = getSettings();
+    if (!v) list = [];
+    else if (list.indexOf(v) >= 0) list = list.filter(function (k) { return k !== v; });
+    else list = list.concat(v);
+    setSettings(list);
     // Switching settings stays on the current page (the menu links only lead somewhere without JavaScript).
     if (t.tagName === 'A') e.preventDefault();
-    var d = t.closest('details');
-    if (d) d.open = false;
+    if (!v) { var d = t.closest('details'); if (d) d.open = false; }
   });
   document.addEventListener('click', function (e) {
     $$('details.setting-switch[open]').forEach(function (d) { if (!d.contains(e.target)) d.open = false; });
