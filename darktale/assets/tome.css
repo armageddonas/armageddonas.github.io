@@ -211,6 +211,8 @@ hr { border: 0; border-top: 1px solid var(--border); margin: 40px 0; }
 .facts .dd-note { display: block; margin-top: 2px; font-size: 13.5px; color: var(--muted); }
 .side-nav a:hover { color: var(--accent-hi); }
 [data-setting-only] { display: none; }
+/* Wins over components' own display rules (.voc-card, .m-kids a, chips) that come later in this file. */
+html.js [data-setting-only]:not(.show) { display: none !important; }
 [data-setting-only].show { display: block; }
 tr[data-setting-only].show { display: table-row; }
 .jump-chips a[data-setting-only].show { display: inline-flex; }
