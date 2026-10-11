@@ -628,3 +628,10 @@ body.locked .back-top { display: none; }
 
 /* GM-only pages, added locally from the publish overlay (assets/gm.js). */
 .side-nav .gm-link::after, .m-kids .gm-link::after { content: " · GM"; opacity: .6; font-size: .8em; }
+
+/* Group rows in a table ("Melee", "Ranged"): a small heading across the table */
+tr.table-group th {
+  text-align: left; padding: 14px 10px 6px; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--accent); border-bottom: 1px solid var(--border-2); background: transparent;
+}
+tbody tr.table-group:first-child th { padding-top: 8px; }
