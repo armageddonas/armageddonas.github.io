@@ -413,12 +413,13 @@
   function runSearch(q, filter) {
     var words = q.toLowerCase().split(/\s+/).filter(Boolean);
     if (!words.length) return [];
-    var cur = getSetting();
+    var selected = getSettings();
     var phrase = q.toLowerCase().trim();
     var results = [];
     index.entries.forEach(function (e) {
       var type = e[0], title = e[1], text = e[4], setting = e[5];
-      if (setting && setting !== cur) return;
+      // Setting content shows only for the selected settings (several can be selected).
+      if (setting && selected.indexOf(setting) < 0) return;
       var tl = title.toLowerCase(), xl = text.toLowerCase();
       var score = 0;
       for (var i = 0; i < words.length; i++) {
