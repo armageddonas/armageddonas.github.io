@@ -380,7 +380,7 @@
     if (loadIndex.started) return;
     loadIndex.started = true;
     var s = document.createElement('script');
-    s.src = ROOT + 'assets/search-index.js';
+    s.src = ROOT + 'assets/search-index.js' + (html.getAttribute('data-build') ? '?v=' + html.getAttribute('data-build') : '');
     s.onload = function () {
       loadGm(function (gm) {
         index = window.DARKTALE_SEARCH;
