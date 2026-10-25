@@ -148,6 +148,12 @@
         if (l.indexOf(parentId) < 0) l.push(parentId);
         return l;
       };
+      // Cards are only as tall as their text, so runs between rows go below the tallest card of the row.
+      var rowBottom = {};
+      $$('.talent', tree).forEach(function (el) {
+        var r = pos(el).r, b = rect(el).b;
+        if (!(rowBottom[r] >= b)) rowBottom[r] = b;
+      });
       var edges = [];
       $$('.talent', tree).forEach(function (el) {
         var ps = (el.getAttribute('data-parents') || '').split(' ').filter(Boolean);
@@ -169,7 +175,7 @@
       edges.forEach(function (e) {
         var p = rect(e[0]), c = rect(e[1]);
         var pp = pos(e[0]), cp = pos(e[1]);
-        var y1 = p.b + gapRow / 2 + off(pp.r + 'b', e[0].id);
+        var y1 = rowBottom[pp.r] + gapRow / 2 + off(pp.r + 'b', e[0].id);
         if (cp.r - pp.r === 1) {
           paths.push('M' + p.cx + ' ' + p.b + 'V' + y1 + 'H' + c.cx + 'V' + c.t);
           return;

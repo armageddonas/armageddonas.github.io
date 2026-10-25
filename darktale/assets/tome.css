@@ -396,6 +396,8 @@ html:not(.js) .tabs { display: none; }
 .tree + .tree { margin-top: 40px; }
 .talent {
   grid-row: var(--r); grid-column: var(--c);
+  /* Each card is as tall as its own text, so a short talent beside a long one isn't an empty box. */
+  align-self: start;
   position: relative; z-index: 1;
   margin: 0; padding: 16px 18px;
   background: var(--card); border: 1px solid var(--border-2); border-top: 3px solid var(--accent);
@@ -407,6 +409,9 @@ html:not(.js) .tabs { display: none; }
 .t-text { font-size: 16px; line-height: 1.5; }
 .t-text p { margin: 8px 0 0; }
 .t-text ul { padding-left: 18px; margin: 8px 0 0; }
+/* Sub-lists in a card (a talent's scale or options): tighter and a size down, so they don't stretch the card. */
+.talent .t-text ul { font-size: 14px; line-height: 1.4; }
+.talent .t-text ul li + li { margin-top: 4px; }
 .t-or { margin: 12px 0 0 !important; font-size: 14px; font-style: italic; color: var(--muted); }
 .t-or.phone { display: none; }
 .tree-link { display: none; }
