@@ -417,6 +417,7 @@ html:not(.js) .tabs { display: none; }
 .tree-link { display: none; }
 .tree-lines { position: absolute; left: 0; top: 0; pointer-events: none; z-index: 0; overflow: visible; }
 .tree-lines path { fill: none; stroke: var(--line); stroke-width: 2; }
+.tree-lines path.gap { stroke: var(--page); stroke-width: 4; }
 
 /* Talent index */
 .ti-controls { display: flex; flex-direction: column; gap: 12px; margin-bottom: 8px; }

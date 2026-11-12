@@ -172,12 +172,29 @@
         var l = lanes[gapKey] || [id];
         return (l.indexOf(id) - (l.length - 1) / 2) * 10;
       };
+      // A talent with several parents gets one entry point per parent, spread across its top in the parents'
+      // column order, so each line visibly lands on its own and parents' runs don't merge into one.
+      var entries = {};
+      edges.forEach(function (e) { (entries[e[1].id] = entries[e[1].id] || []).push(e[0]); });
+      Object.keys(entries).forEach(function (k) { entries[k].sort(function (a, b) { return pos(a).c - pos(b).c; }); });
+      var entryX = function (parent, child, c) {
+        var list = entries[child.id];
+        if (!list || list.length < 2) return c.cx;
+        // A parent straight above comes in at the center; the others to its left or right, in column order.
+        var cc = pos(child).c, pc = pos(parent).c;
+        if (pc === cc) return c.cx;
+        var side = list.filter(function (q) { return (pos(q).c - cc) * (pc - cc) > 0; });
+        side.sort(function (a, b) { return Math.abs(pos(a).c - cc) - Math.abs(pos(b).c - cc); });
+        return c.cx + (pc > cc ? 1 : -1) * 28 * (side.indexOf(parent) + 1);
+      };
       edges.forEach(function (e) {
-        var p = rect(e[0]), c = rect(e[1]);
+        var p = rect(e[0]), c0 = rect(e[1]);
+        var c = { l: c0.l, r: c0.r, t: c0.t, b: c0.b, cx: entryX(e[0], e[1], c0) };
         var pp = pos(e[0]), cp = pos(e[1]);
         var y1 = rowBottom[pp.r] + gapRow / 2 + off(pp.r + 'b', e[0].id);
+        var push = function (d) { paths.push({ d: d, from: e[0].id, to: e[1].id }); };
         if (cp.r - pp.r === 1) {
-          paths.push('M' + p.cx + ' ' + p.b + 'V' + y1 + 'H' + c.cx + 'V' + c.t);
+          push('M' + p.cx + ' ' + p.b + 'V' + y1 + 'H' + c.cx + 'V' + c.t);
           return;
         }
         var clear = function (col) {
@@ -185,12 +202,42 @@
           return true;
         };
         var y2 = c.t - gapRow / 2 + off((cp.r - 1) + 'b', e[0].id);
-        if (clear(cp.c)) paths.push('M' + p.cx + ' ' + p.b + 'V' + y1 + 'H' + c.cx + 'V' + c.t);
-        else if (clear(pp.c)) paths.push('M' + p.cx + ' ' + p.b + 'V' + y2 + 'H' + c.cx + 'V' + c.t);
+        if (clear(cp.c)) push('M' + p.cx + ' ' + p.b + 'V' + y1 + 'H' + c.cx + 'V' + c.t);
+        else if (clear(pp.c)) push('M' + p.cx + ' ' + p.b + 'V' + y2 + 'H' + c.cx + 'V' + c.t);
         else {
+          // A detour leaves its parent off-center, on the side it heads to, so its first drop doesn't line up
+          // with a talent below the parent and read as leading there.
           var gx = cp.c >= pp.c ? p.r + gapCol / 2 : p.l - gapCol / 2;
-          paths.push('M' + p.cx + ' ' + p.b + 'V' + y1 + 'H' + gx + 'V' + y2 + 'H' + c.cx + 'V' + c.t);
+          var px = cp.c >= pp.c ? p.r - 24 : p.l + 24;
+          push('M' + px + ' ' + p.b + 'V' + y1 + 'H' + gx + 'V' + y2 + 'H' + c.cx + 'V' + c.t);
         }
+      });
+      // Where a horizontal run crosses another line that leads to a different talent from a different
+      // parent, the run hops over it with a small arc, so crossing lines don't read as joined.
+      var segs = function (d) {
+        var out = [], x = 0, y = 0;
+        (d.match(/[MHV][^MHV]*/g) || []).forEach(function (cmd) {
+          var t = cmd[0], v = cmd.slice(1).trim().split(/\s+/).map(Number);
+          if (t === 'M') { x = v[0]; y = v[1]; return; }
+          if (t === 'H') { out.push({ h: true, y: y, a: Math.min(x, v[0]), b: Math.max(x, v[0]) }); x = v[0]; }
+          if (t === 'V') { out.push({ h: false, x: x, a: Math.min(y, v[0]), b: Math.max(y, v[0]) }); y = v[0]; }
+        });
+        return out;
+      };
+      var edgePaths = paths.filter(function (q) { return typeof q === 'object' && q.to; });
+      var R = 5;
+      edgePaths.forEach(function (A) {
+        segs(A.d).filter(function (s) { return s.h; }).forEach(function (h) {
+          edgePaths.forEach(function (B) {
+            if (A === B || A.to === B.to || A.from === B.from) return;
+            segs(B.d).filter(function (s) { return !s.h; }).forEach(function (v) {
+              if (v.x > h.a + R && v.x < h.b - R && h.y > v.a + R && h.y < v.b - R) {
+                paths.push({ d: 'M' + (v.x - R) + ' ' + h.y + 'H' + (v.x + R), gap: true });
+                paths.push({ d: 'M' + (v.x - R) + ' ' + h.y + 'A' + R + ' ' + R + ' 0 0 1 ' + (v.x + R) + ' ' + h.y });
+              }
+            });
+          });
+        });
       });
     } else {
       // Phone: each parent has a rail down its left side, with a tick to each child.
@@ -220,6 +267,7 @@
       var path = document.createElementNS(ns, 'path');
       path.setAttribute('d', typeof p === 'string' ? p : p.d);
       if (p.dash) path.setAttribute('class', 'dash');
+      if (p.gap) path.setAttribute('class', 'gap');
       svg.appendChild(path);
     });
     tree.insertBefore(svg, tree.firstChild);
