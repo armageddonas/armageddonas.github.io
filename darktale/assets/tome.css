@@ -671,3 +671,6 @@ tr.world-row td:first-child { box-shadow: inset 3px 0 0 var(--mark); }
 .cat-menu a:hover { background: var(--hover); color: var(--accent); text-decoration: none; }
 .cat-menu a[data-setting-only]:not(.show) { display: none; }
 .cat-menu a.sub { padding-left: 30px; font-size: 14px; color: var(--muted-2); }
+/* A setting's group heading in a menu (Duskworld's vocations after the core ones). */
+.cat-menu .menu-label, .m-kids .menu-label { margin-top: 6px; padding: 8px 16px 4px; border-top: 1px solid var(--border); font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); }
+.m-kids .menu-label { padding: 10px 28px 4px; }
